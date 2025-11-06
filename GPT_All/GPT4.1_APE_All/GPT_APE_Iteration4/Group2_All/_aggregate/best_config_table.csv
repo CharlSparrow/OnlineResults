@@ -1,0 +1,435 @@
+run_dir,model_id,group,prompt_stage,temperature,top_p,seed,acc_strict,acc_strict_ci_lo,acc_strict_ci_hi,acc_relaxed,acc_relaxed_ci_lo,acc_relaxed_ci_hi,kappa_strict_nom,kappa_strict_quad,kappa_relaxed_nom,kappa_relaxed_quad,kappa_s_nom_ci_lo,kappa_s_nom_ci_hi,kappa_s_quad_ci_lo,kappa_s_quad_ci_hi,kappa_r_nom_ci_lo,kappa_r_nom_ci_hi,kappa_r_quad_ci_lo,kappa_r_quad_ci_hi,bias_mean,bias_ci_lo,bias_ci_hi,tolerated_offdiag_total,macro_f1_strict,weighted_f1_strict,matches_correct,prompt_text,StageCanon,Model,Group,T,IterCanon,pearson_strict,pearson_relaxed,abs_bias
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration4\Group2_All\gpt-4.1_APE_Group2_Iteration_4_Temp_0.5_topP_0.95,GPT-4.1,Group2,ape-hitl,0.5,0.95,42424242,0.8077,0.6212,0.9149,0.8462,0.6647,0.9385,0.6798,0.8602,0.738,0.8745,0.4298,0.9089,0.6152,0.9808,0.4916,0.9345,0.6379,0.9903,0.1923,-0.0385,0.5,1,0.5758928571428571,0.8193681318681318,21,"TASK
+Grade 26 hand-drawn graphs of the inverse logarithmic function (base 2) against the attached memorandum drawing. Grade each student independently.
+
+HARD RULE ABOUT AXES
+• If either Cartesian axis is absent or the curve is drawn without axes, assign 0/3 (A=0, B=0, C=0). Do not infer anything from the curve alone.
+• If axes exist but are clearly unrelated to the graded curve (e.g., drawn elsewhere), treat as “axes absent”.
+
+CURVE SELECTION
+• Grade ONLY the inverse log curve. If multiple curves appear, prefer the one labeled “h⁻¹”. If none is labeled, choose the curve that approaches the y-axis from the RIGHT and lies near the first quadrant. Do NOT use marks/labels from a different curve (e.g., “h”) to award any criterion.
+
+SCORING (three binary checks → total 0–3)
+Check A — Asymptote at the y-axis (x=0)
+• AWARD if the entire h⁻¹ curve stays strictly in x>0.
+• Small nibs from pen thickness that just touch are OK. 
+• DEDUCT if a continuous piece of the drawn curve lies on or left of the y-axis, OR the curve runs along the y-axis for a visible segment, OR it clearly passes from right to left at any point.
+• Ignore arrowheads, ticks, labels, faint guidelines/erasures. A single plotted point left of the axis (e.g., (½;−1)) does NOT cause a deduction.
+
+Check B — x-intercept exactly at (1;0)  [EVIDENCE REQUIRED]
+• AWARD if at least ONE of the following appears:
+  – the text “(1;0)” or “(1,0)” anywhere on the page, OR
+  – the text “x=1” anywhere on the page, OR
+  – a dot/crossing on the x-axis at x≈1 WITH a nearby explicit “1” label.
+• DO NOT award for: unlabeled dot on the axis; a “1” written near the axis without a dot; a bare crossing of the curve through the x-axis; “(0;1)”; “(½;−1)”; “2”; ticks or generic marks.
+• Tolerance for the labeled dot/crossing: accept positions within 0.9–1.1 of the tick spacing.
+
+Check C — Logarithmic shape (base 2)
+• AWARD only if ALL of the following base conditions hold:
+  1) The chosen curve is **monotone increasing** on its drawn branch, and
+  2) It is **concave down** over most of the visible branch.
+• AND at least **one** of the two behavior cues holds (→ require 3 of 4 cues total):
+  3) The **left end** approaches the y-axis (x close to 0⁺) more steeply than the right end (i.e., left is “more vertical”, right is “flatter”), and/or
+  4) The **left end** heads downward (toward negative y) as it nears the y-axis, while the right tail flattens as x increases.
+• DEDUCT (C=0) for any of: obvious exponential (concave up), nearly straight line with no visible curvature, decreasing behavior, hyperbolic-looking branch that tracks along the y-axis, or a branch that extends visibly into x≤0.
+• Borderline award is allowed only when the ends clearly bend and the steep-to-flat pattern is evident (e.g., S17-type). Otherwise C=0.
+
+TIE-BREAKERS
+• Never infer B from curve crossing alone. If the explicit evidence list is missing, set B=0.
+• “1/3” should be rare: use it only when exactly one of C, B, A clearly holds.
+
+WHAT TO IGNORE
+• Page ruling, smudges, erasures, arrowheads, ticks, faint guidelines, labels like “h⁻¹” that overlap the curve. These are not the curve.
+
+OUTPUT CONTRACT (strict, parseable)
+For EACH student 1..26, output exactly this block — no extra prose, no extra blank lines, and do not restate other students. The token “/3” must appear exactly once per student.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]  <-- maps to C,B,A respectively
+Reasons:
+• Shape: <one sentence stating why awarded/deducted for C using the cues above>
+• x-intercept: <one sentence for B; cite explicit evidence or the lack thereof>
+• Asymptote: <one sentence for A; mention crossing/overlap or staying in x>0>
+
+CALIBRATION SNIPPETS (DO NOT OUTPUT; for decision consistency)
+(hyperbolic/overlaps y-axis): lower “h⁻¹” runs along/crosses the y-axis and is not concave down → A=0, C=0, B=0 ⇒ 0/3.
+(lower straight-ish segment): monotone but almost linear, no concave-down log shape → C=0. If axes present and no B evidence → 0/3 (or 1/3 only if A=1 and C=0 fails).
+(no axes): Axes absent → 0/3.
+(writes “(0;1)”, not “(1;0)”): B=0 unless explicit “(1;0)”/“x=1”/labeled dot at x≈1 is also present.
+(borderline but bends at ends and is increasing): C=1 provided the steep-to-flat pattern is visible.
+“(1;0)” text present (even without a dot) → B=1.
+curve crosses near x≈1 but NO label/coordinate → B=0.
+• axes missing → A=0, B=0; C may be 0 or 1 depending on shape (thus only 0/3 or 1/3 possible).",APE,GPT-4.1,Group2,0.5,4.0,,,0.1923
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration4\Group2_All\gpt-4.1_APE_Group2_Iteration_4_Temp_0.8_topP_0.95,GPT-4.1,Group2,ape-hitl,0.8,0.95,42424242,0.8077,0.6212,0.9149,0.8462,0.6647,0.9385,0.679,0.8348,0.7406,0.8441,0.4394,0.8794,0.5769,0.9808,0.4986,0.9352,0.587,0.9897,0.0769,-0.1923,0.3846,1,0.5495798319327732,0.81590174531351,21,"TASK
+Grade 26 hand-drawn graphs of the inverse logarithmic function (base 2) against the attached memorandum drawing. Grade each student independently.
+
+HARD RULE ABOUT AXES
+• If either Cartesian axis is absent or the curve is drawn without axes, assign 0/3 (A=0, B=0, C=0). Do not infer anything from the curve alone.
+• If axes exist but are clearly unrelated to the graded curve (e.g., drawn elsewhere), treat as “axes absent”.
+
+CURVE SELECTION
+• Grade ONLY the inverse log curve. If multiple curves appear, prefer the one labeled “h⁻¹”. If none is labeled, choose the curve that approaches the y-axis from the RIGHT and lies near the first quadrant. Do NOT use marks/labels from a different curve (e.g., “h”) to award any criterion.
+
+SCORING (three binary checks → total 0–3)
+Check A — Asymptote at the y-axis (x=0)
+• AWARD if the entire h⁻¹ curve stays strictly in x>0.
+• Small nibs from pen thickness that just touch are OK. 
+• DEDUCT if a continuous piece of the drawn curve lies on or left of the y-axis, OR the curve runs along the y-axis for a visible segment, OR it clearly passes from right to left at any point.
+• Ignore arrowheads, ticks, labels, faint guidelines/erasures. A single plotted point left of the axis (e.g., (½;−1)) does NOT cause a deduction.
+
+Check B — x-intercept exactly at (1;0)  [EVIDENCE REQUIRED]
+• AWARD if at least ONE of the following appears:
+  – the text “(1;0)” or “(1,0)” anywhere on the page, OR
+  – the text “x=1” anywhere on the page, OR
+  – a dot/crossing on the x-axis at x≈1 WITH a nearby explicit “1” label.
+• DO NOT award for: unlabeled dot on the axis; a “1” written near the axis without a dot; a bare crossing of the curve through the x-axis; “(0;1)”; “(½;−1)”; “2”; ticks or generic marks.
+• Tolerance for the labeled dot/crossing: accept positions within 0.9–1.1 of the tick spacing.
+
+Check C — Logarithmic shape (base 2)
+• AWARD only if ALL of the following base conditions hold:
+  1) The chosen curve is **monotone increasing** on its drawn branch, and
+  2) It is **concave down** over most of the visible branch.
+• AND at least **one** of the two behavior cues holds (→ require 3 of 4 cues total):
+  3) The **left end** approaches the y-axis (x close to 0⁺) more steeply than the right end (i.e., left is “more vertical”, right is “flatter”), and/or
+  4) The **left end** heads downward (toward negative y) as it nears the y-axis, while the right tail flattens as x increases.
+• DEDUCT (C=0) for any of: obvious exponential (concave up), nearly straight line with no visible curvature, decreasing behavior, hyperbolic-looking branch that tracks along the y-axis, or a branch that extends visibly into x≤0.
+• Borderline award is allowed only when the ends clearly bend and the steep-to-flat pattern is evident (e.g., S17-type). Otherwise C=0.
+
+TIE-BREAKERS
+• Never infer B from curve crossing alone. If the explicit evidence list is missing, set B=0.
+• “1/3” should be rare: use it only when exactly one of C, B, A clearly holds.
+
+WHAT TO IGNORE
+• Page ruling, smudges, erasures, arrowheads, ticks, faint guidelines, labels like “h⁻¹” that overlap the curve. These are not the curve.
+
+OUTPUT CONTRACT (strict, parseable)
+For EACH student 1..26, output exactly this block — no extra prose, no extra blank lines, and do not restate other students. The token “/3” must appear exactly once per student.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]  <-- maps to C,B,A respectively
+Reasons:
+• Shape: <one sentence stating why awarded/deducted for C using the cues above>
+• x-intercept: <one sentence for B; cite explicit evidence or the lack thereof>
+• Asymptote: <one sentence for A; mention crossing/overlap or staying in x>0>
+
+CALIBRATION SNIPPETS (DO NOT OUTPUT; for decision consistency)
+(hyperbolic/overlaps y-axis): lower “h⁻¹” runs along/crosses the y-axis and is not concave down → A=0, C=0, B=0 ⇒ 0/3.
+(lower straight-ish segment): monotone but almost linear, no concave-down log shape → C=0. If axes present and no B evidence → 0/3 (or 1/3 only if A=1 and C=0 fails).
+(no axes): Axes absent → 0/3.
+(writes “(0;1)”, not “(1;0)”): B=0 unless explicit “(1;0)”/“x=1”/labeled dot at x≈1 is also present.
+(borderline but bends at ends and is increasing): C=1 provided the steep-to-flat pattern is visible.
+“(1;0)” text present (even without a dot) → B=1.
+curve crosses near x≈1 but NO label/coordinate → B=0.
+• axes missing → A=0, B=0; C may be 0 or 1 depending on shape (thus only 0/3 or 1/3 possible).",APE,GPT-4.1,Group2,0.8,4.0,,,0.0769
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration4\Group2_All\gpt-4.1_APE_Group2_Iteration_4_Temp_0.8_topP_0.9,GPT-4.1,Group2,ape-hitl,0.8,0.9,42424242,0.7692,0.5795,0.8897,0.8846,0.7102,0.96,0.6389,0.8141,0.8098,0.8524,0.3915,0.8653,0.5445,0.969,0.5854,1.0,0.5905,1.0,0.0385,-0.2692,0.3471,3,0.5731456043956044,0.8138736263736264,20,"TASK
+Grade 26 hand-drawn graphs of the inverse logarithmic function (base 2) against the attached memorandum drawing. Grade each student independently.
+
+HARD RULE ABOUT AXES
+• If either Cartesian axis is absent or the curve is drawn without axes, assign 0/3 (A=0, B=0, C=0). Do not infer anything from the curve alone.
+• If axes exist but are clearly unrelated to the graded curve (e.g., drawn elsewhere), treat as “axes absent”.
+
+CURVE SELECTION
+• Grade ONLY the inverse log curve. If multiple curves appear, prefer the one labeled “h⁻¹”. If none is labeled, choose the curve that approaches the y-axis from the RIGHT and lies near the first quadrant. Do NOT use marks/labels from a different curve (e.g., “h”) to award any criterion.
+
+SCORING (three binary checks → total 0–3)
+Check A — Asymptote at the y-axis (x=0)
+• AWARD if the entire h⁻¹ curve stays strictly in x>0.
+• Small nibs from pen thickness that just touch are OK. 
+• DEDUCT if a continuous piece of the drawn curve lies on or left of the y-axis, OR the curve runs along the y-axis for a visible segment, OR it clearly passes from right to left at any point.
+• Ignore arrowheads, ticks, labels, faint guidelines/erasures. A single plotted point left of the axis (e.g., (½;−1)) does NOT cause a deduction.
+
+Check B — x-intercept exactly at (1;0)  [EVIDENCE REQUIRED]
+• AWARD if at least ONE of the following appears:
+  – the text “(1;0)” or “(1,0)” anywhere on the page, OR
+  – the text “x=1” anywhere on the page, OR
+  – a dot/crossing on the x-axis at x≈1 WITH a nearby explicit “1” label.
+• DO NOT award for: unlabeled dot on the axis; a “1” written near the axis without a dot; a bare crossing of the curve through the x-axis; “(0;1)”; “(½;−1)”; “2”; ticks or generic marks.
+• Tolerance for the labeled dot/crossing: accept positions within 0.9–1.1 of the tick spacing.
+
+Check C — Logarithmic shape (base 2)
+• AWARD only if ALL of the following base conditions hold:
+  1) The chosen curve is **monotone increasing** on its drawn branch, and
+  2) It is **concave down** over most of the visible branch.
+• AND at least **one** of the two behavior cues holds (→ require 3 of 4 cues total):
+  3) The **left end** approaches the y-axis (x close to 0⁺) more steeply than the right end (i.e., left is “more vertical”, right is “flatter”), and/or
+  4) The **left end** heads downward (toward negative y) as it nears the y-axis, while the right tail flattens as x increases.
+• DEDUCT (C=0) for any of: obvious exponential (concave up), nearly straight line with no visible curvature, decreasing behavior, hyperbolic-looking branch that tracks along the y-axis, or a branch that extends visibly into x≤0.
+• Borderline award is allowed only when the ends clearly bend and the steep-to-flat pattern is evident (e.g., S17-type). Otherwise C=0.
+
+TIE-BREAKERS
+• Never infer B from curve crossing alone. If the explicit evidence list is missing, set B=0.
+• “1/3” should be rare: use it only when exactly one of C, B, A clearly holds.
+
+WHAT TO IGNORE
+• Page ruling, smudges, erasures, arrowheads, ticks, faint guidelines, labels like “h⁻¹” that overlap the curve. These are not the curve.
+
+OUTPUT CONTRACT (strict, parseable)
+For EACH student 1..26, output exactly this block — no extra prose, no extra blank lines, and do not restate other students. The token “/3” must appear exactly once per student.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]  <-- maps to C,B,A respectively
+Reasons:
+• Shape: <one sentence stating why awarded/deducted for C using the cues above>
+• x-intercept: <one sentence for B; cite explicit evidence or the lack thereof>
+• Asymptote: <one sentence for A; mention crossing/overlap or staying in x>0>
+
+CALIBRATION SNIPPETS (DO NOT OUTPUT; for decision consistency)
+(hyperbolic/overlaps y-axis): lower “h⁻¹” runs along/crosses the y-axis and is not concave down → A=0, C=0, B=0 ⇒ 0/3.
+(lower straight-ish segment): monotone but almost linear, no concave-down log shape → C=0. If axes present and no B evidence → 0/3 (or 1/3 only if A=1 and C=0 fails).
+(no axes): Axes absent → 0/3.
+(writes “(0;1)”, not “(1;0)”): B=0 unless explicit “(1;0)”/“x=1”/labeled dot at x≈1 is also present.
+(borderline but bends at ends and is increasing): C=1 provided the steep-to-flat pattern is visible.
+“(1;0)” text present (even without a dot) → B=1.
+curve crosses near x≈1 but NO label/coordinate → B=0.
+• axes missing → A=0, B=0; C may be 0 or 1 depending on shape (thus only 0/3 or 1/3 possible).",APE,GPT-4.1,Group2,0.8,4.0,,,0.0385
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration4\Group2_All\gpt-4.1_APE_Group2_Iteration_4_Temp_0.8_topP_0.85,GPT-4.1,Group2,ape-hitl,0.8,0.85,42424242,0.7308,0.5392,0.863,0.8077,0.6212,0.9149,0.5506,0.8117,0.6684,0.8361,0.3082,0.7898,0.5538,0.963,0.4196,0.9195,0.5813,0.981,0.1538,-0.1538,0.5,2,0.4256465517241379,0.7166777188328913,19,"TASK
+Grade 26 hand-drawn graphs of the inverse logarithmic function (base 2) against the attached memorandum drawing. Grade each student independently.
+
+HARD RULE ABOUT AXES
+• If either Cartesian axis is absent or the curve is drawn without axes, assign 0/3 (A=0, B=0, C=0). Do not infer anything from the curve alone.
+• If axes exist but are clearly unrelated to the graded curve (e.g., drawn elsewhere), treat as “axes absent”.
+
+CURVE SELECTION
+• Grade ONLY the inverse log curve. If multiple curves appear, prefer the one labeled “h⁻¹”. If none is labeled, choose the curve that approaches the y-axis from the RIGHT and lies near the first quadrant. Do NOT use marks/labels from a different curve (e.g., “h”) to award any criterion.
+
+SCORING (three binary checks → total 0–3)
+Check A — Asymptote at the y-axis (x=0)
+• AWARD if the entire h⁻¹ curve stays strictly in x>0.
+• Small nibs from pen thickness that just touch are OK. 
+• DEDUCT if a continuous piece of the drawn curve lies on or left of the y-axis, OR the curve runs along the y-axis for a visible segment, OR it clearly passes from right to left at any point.
+• Ignore arrowheads, ticks, labels, faint guidelines/erasures. A single plotted point left of the axis (e.g., (½;−1)) does NOT cause a deduction.
+
+Check B — x-intercept exactly at (1;0)  [EVIDENCE REQUIRED]
+• AWARD if at least ONE of the following appears:
+  – the text “(1;0)” or “(1,0)” anywhere on the page, OR
+  – the text “x=1” anywhere on the page, OR
+  – a dot/crossing on the x-axis at x≈1 WITH a nearby explicit “1” label.
+• DO NOT award for: unlabeled dot on the axis; a “1” written near the axis without a dot; a bare crossing of the curve through the x-axis; “(0;1)”; “(½;−1)”; “2”; ticks or generic marks.
+• Tolerance for the labeled dot/crossing: accept positions within 0.9–1.1 of the tick spacing.
+
+Check C — Logarithmic shape (base 2)
+• AWARD only if ALL of the following base conditions hold:
+  1) The chosen curve is **monotone increasing** on its drawn branch, and
+  2) It is **concave down** over most of the visible branch.
+• AND at least **one** of the two behavior cues holds (→ require 3 of 4 cues total):
+  3) The **left end** approaches the y-axis (x close to 0⁺) more steeply than the right end (i.e., left is “more vertical”, right is “flatter”), and/or
+  4) The **left end** heads downward (toward negative y) as it nears the y-axis, while the right tail flattens as x increases.
+• DEDUCT (C=0) for any of: obvious exponential (concave up), nearly straight line with no visible curvature, decreasing behavior, hyperbolic-looking branch that tracks along the y-axis, or a branch that extends visibly into x≤0.
+• Borderline award is allowed only when the ends clearly bend and the steep-to-flat pattern is evident (e.g., S17-type). Otherwise C=0.
+
+TIE-BREAKERS
+• Never infer B from curve crossing alone. If the explicit evidence list is missing, set B=0.
+• “1/3” should be rare: use it only when exactly one of C, B, A clearly holds.
+
+WHAT TO IGNORE
+• Page ruling, smudges, erasures, arrowheads, ticks, faint guidelines, labels like “h⁻¹” that overlap the curve. These are not the curve.
+
+OUTPUT CONTRACT (strict, parseable)
+For EACH student 1..26, output exactly this block — no extra prose, no extra blank lines, and do not restate other students. The token “/3” must appear exactly once per student.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]  <-- maps to C,B,A respectively
+Reasons:
+• Shape: <one sentence stating why awarded/deducted for C using the cues above>
+• x-intercept: <one sentence for B; cite explicit evidence or the lack thereof>
+• Asymptote: <one sentence for A; mention crossing/overlap or staying in x>0>
+
+CALIBRATION SNIPPETS (DO NOT OUTPUT; for decision consistency)
+(hyperbolic/overlaps y-axis): lower “h⁻¹” runs along/crosses the y-axis and is not concave down → A=0, C=0, B=0 ⇒ 0/3.
+(lower straight-ish segment): monotone but almost linear, no concave-down log shape → C=0. If axes present and no B evidence → 0/3 (or 1/3 only if A=1 and C=0 fails).
+(no axes): Axes absent → 0/3.
+(writes “(0;1)”, not “(1;0)”): B=0 unless explicit “(1;0)”/“x=1”/labeled dot at x≈1 is also present.
+(borderline but bends at ends and is increasing): C=1 provided the steep-to-flat pattern is visible.
+“(1;0)” text present (even without a dot) → B=1.
+curve crosses near x≈1 but NO label/coordinate → B=0.
+• axes missing → A=0, B=0; C may be 0 or 1 depending on shape (thus only 0/3 or 1/3 possible).",APE,GPT-4.1,Group2,0.8,4.0,,,0.1538
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration4\Group2_All\gpt-4.1_APE_Group2_Iteration_4_Temp_0.6_topP_0.95,GPT-4.1,Group2,ape-hitl,0.6,0.95,42424242,0.7308,0.5392,0.863,0.8077,0.6212,0.9149,0.5506,0.8117,0.6684,0.8361,0.3082,0.7898,0.5538,0.963,0.4196,0.9195,0.5813,0.981,0.1538,-0.1538,0.5,2,0.4256465517241379,0.7166777188328913,19,"TASK
+Grade 26 hand-drawn graphs of the inverse logarithmic function (base 2) against the attached memorandum drawing. Grade each student independently.
+
+HARD RULE ABOUT AXES
+• If either Cartesian axis is absent or the curve is drawn without axes, assign 0/3 (A=0, B=0, C=0). Do not infer anything from the curve alone.
+• If axes exist but are clearly unrelated to the graded curve (e.g., drawn elsewhere), treat as “axes absent”.
+
+CURVE SELECTION
+• Grade ONLY the inverse log curve. If multiple curves appear, prefer the one labeled “h⁻¹”. If none is labeled, choose the curve that approaches the y-axis from the RIGHT and lies near the first quadrant. Do NOT use marks/labels from a different curve (e.g., “h”) to award any criterion.
+
+SCORING (three binary checks → total 0–3)
+Check A — Asymptote at the y-axis (x=0)
+• AWARD if the entire h⁻¹ curve stays strictly in x>0.
+• Small nibs from pen thickness that just touch are OK. 
+• DEDUCT if a continuous piece of the drawn curve lies on or left of the y-axis, OR the curve runs along the y-axis for a visible segment, OR it clearly passes from right to left at any point.
+• Ignore arrowheads, ticks, labels, faint guidelines/erasures. A single plotted point left of the axis (e.g., (½;−1)) does NOT cause a deduction.
+
+Check B — x-intercept exactly at (1;0)  [EVIDENCE REQUIRED]
+• AWARD if at least ONE of the following appears:
+  – the text “(1;0)” or “(1,0)” anywhere on the page, OR
+  – the text “x=1” anywhere on the page, OR
+  – a dot/crossing on the x-axis at x≈1 WITH a nearby explicit “1” label.
+• DO NOT award for: unlabeled dot on the axis; a “1” written near the axis without a dot; a bare crossing of the curve through the x-axis; “(0;1)”; “(½;−1)”; “2”; ticks or generic marks.
+• Tolerance for the labeled dot/crossing: accept positions within 0.9–1.1 of the tick spacing.
+
+Check C — Logarithmic shape (base 2)
+• AWARD only if ALL of the following base conditions hold:
+  1) The chosen curve is **monotone increasing** on its drawn branch, and
+  2) It is **concave down** over most of the visible branch.
+• AND at least **one** of the two behavior cues holds (→ require 3 of 4 cues total):
+  3) The **left end** approaches the y-axis (x close to 0⁺) more steeply than the right end (i.e., left is “more vertical”, right is “flatter”), and/or
+  4) The **left end** heads downward (toward negative y) as it nears the y-axis, while the right tail flattens as x increases.
+• DEDUCT (C=0) for any of: obvious exponential (concave up), nearly straight line with no visible curvature, decreasing behavior, hyperbolic-looking branch that tracks along the y-axis, or a branch that extends visibly into x≤0.
+• Borderline award is allowed only when the ends clearly bend and the steep-to-flat pattern is evident (e.g., S17-type). Otherwise C=0.
+
+TIE-BREAKERS
+• Never infer B from curve crossing alone. If the explicit evidence list is missing, set B=0.
+• “1/3” should be rare: use it only when exactly one of C, B, A clearly holds.
+
+WHAT TO IGNORE
+• Page ruling, smudges, erasures, arrowheads, ticks, faint guidelines, labels like “h⁻¹” that overlap the curve. These are not the curve.
+
+OUTPUT CONTRACT (strict, parseable)
+For EACH student 1..26, output exactly this block — no extra prose, no extra blank lines, and do not restate other students. The token “/3” must appear exactly once per student.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]  <-- maps to C,B,A respectively
+Reasons:
+• Shape: <one sentence stating why awarded/deducted for C using the cues above>
+• x-intercept: <one sentence for B; cite explicit evidence or the lack thereof>
+• Asymptote: <one sentence for A; mention crossing/overlap or staying in x>0>
+
+CALIBRATION SNIPPETS (DO NOT OUTPUT; for decision consistency)
+(hyperbolic/overlaps y-axis): lower “h⁻¹” runs along/crosses the y-axis and is not concave down → A=0, C=0, B=0 ⇒ 0/3.
+(lower straight-ish segment): monotone but almost linear, no concave-down log shape → C=0. If axes present and no B evidence → 0/3 (or 1/3 only if A=1 and C=0 fails).
+(no axes): Axes absent → 0/3.
+(writes “(0;1)”, not “(1;0)”): B=0 unless explicit “(1;0)”/“x=1”/labeled dot at x≈1 is also present.
+(borderline but bends at ends and is increasing): C=1 provided the steep-to-flat pattern is visible.
+“(1;0)” text present (even without a dot) → B=1.
+curve crosses near x≈1 but NO label/coordinate → B=0.
+• axes missing → A=0, B=0; C may be 0 or 1 depending on shape (thus only 0/3 or 1/3 possible).",APE,GPT-4.1,Group2,0.6,4.0,,,0.1538
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration4\Group2_All\gpt-4.1_APE_Group2_Iteration_4_Temp_0.7_topP_0.95,GPT-4.1,Group2,ape-hitl,0.7,0.95,42424242,0.7308,0.5392,0.863,0.8077,0.6212,0.9149,0.5506,0.8117,0.6684,0.8361,0.3082,0.7898,0.5538,0.963,0.4196,0.9195,0.5813,0.981,0.1538,-0.1538,0.5,2,0.4256465517241379,0.7166777188328913,19,"TASK
+Grade 26 hand-drawn graphs of the inverse logarithmic function (base 2) against the attached memorandum drawing. Grade each student independently.
+
+HARD RULE ABOUT AXES
+• If either Cartesian axis is absent or the curve is drawn without axes, assign 0/3 (A=0, B=0, C=0). Do not infer anything from the curve alone.
+• If axes exist but are clearly unrelated to the graded curve (e.g., drawn elsewhere), treat as “axes absent”.
+
+CURVE SELECTION
+• Grade ONLY the inverse log curve. If multiple curves appear, prefer the one labeled “h⁻¹”. If none is labeled, choose the curve that approaches the y-axis from the RIGHT and lies near the first quadrant. Do NOT use marks/labels from a different curve (e.g., “h”) to award any criterion.
+
+SCORING (three binary checks → total 0–3)
+Check A — Asymptote at the y-axis (x=0)
+• AWARD if the entire h⁻¹ curve stays strictly in x>0.
+• Small nibs from pen thickness that just touch are OK. 
+• DEDUCT if a continuous piece of the drawn curve lies on or left of the y-axis, OR the curve runs along the y-axis for a visible segment, OR it clearly passes from right to left at any point.
+• Ignore arrowheads, ticks, labels, faint guidelines/erasures. A single plotted point left of the axis (e.g., (½;−1)) does NOT cause a deduction.
+
+Check B — x-intercept exactly at (1;0)  [EVIDENCE REQUIRED]
+• AWARD if at least ONE of the following appears:
+  – the text “(1;0)” or “(1,0)” anywhere on the page, OR
+  – the text “x=1” anywhere on the page, OR
+  – a dot/crossing on the x-axis at x≈1 WITH a nearby explicit “1” label.
+• DO NOT award for: unlabeled dot on the axis; a “1” written near the axis without a dot; a bare crossing of the curve through the x-axis; “(0;1)”; “(½;−1)”; “2”; ticks or generic marks.
+• Tolerance for the labeled dot/crossing: accept positions within 0.9–1.1 of the tick spacing.
+
+Check C — Logarithmic shape (base 2)
+• AWARD only if ALL of the following base conditions hold:
+  1) The chosen curve is **monotone increasing** on its drawn branch, and
+  2) It is **concave down** over most of the visible branch.
+• AND at least **one** of the two behavior cues holds (→ require 3 of 4 cues total):
+  3) The **left end** approaches the y-axis (x close to 0⁺) more steeply than the right end (i.e., left is “more vertical”, right is “flatter”), and/or
+  4) The **left end** heads downward (toward negative y) as it nears the y-axis, while the right tail flattens as x increases.
+• DEDUCT (C=0) for any of: obvious exponential (concave up), nearly straight line with no visible curvature, decreasing behavior, hyperbolic-looking branch that tracks along the y-axis, or a branch that extends visibly into x≤0.
+• Borderline award is allowed only when the ends clearly bend and the steep-to-flat pattern is evident (e.g., S17-type). Otherwise C=0.
+
+TIE-BREAKERS
+• Never infer B from curve crossing alone. If the explicit evidence list is missing, set B=0.
+• “1/3” should be rare: use it only when exactly one of C, B, A clearly holds.
+
+WHAT TO IGNORE
+• Page ruling, smudges, erasures, arrowheads, ticks, faint guidelines, labels like “h⁻¹” that overlap the curve. These are not the curve.
+
+OUTPUT CONTRACT (strict, parseable)
+For EACH student 1..26, output exactly this block — no extra prose, no extra blank lines, and do not restate other students. The token “/3” must appear exactly once per student.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]  <-- maps to C,B,A respectively
+Reasons:
+• Shape: <one sentence stating why awarded/deducted for C using the cues above>
+• x-intercept: <one sentence for B; cite explicit evidence or the lack thereof>
+• Asymptote: <one sentence for A; mention crossing/overlap or staying in x>0>
+
+CALIBRATION SNIPPETS (DO NOT OUTPUT; for decision consistency)
+(hyperbolic/overlaps y-axis): lower “h⁻¹” runs along/crosses the y-axis and is not concave down → A=0, C=0, B=0 ⇒ 0/3.
+(lower straight-ish segment): monotone but almost linear, no concave-down log shape → C=0. If axes present and no B evidence → 0/3 (or 1/3 only if A=1 and C=0 fails).
+(no axes): Axes absent → 0/3.
+(writes “(0;1)”, not “(1;0)”): B=0 unless explicit “(1;0)”/“x=1”/labeled dot at x≈1 is also present.
+(borderline but bends at ends and is increasing): C=1 provided the steep-to-flat pattern is visible.
+“(1;0)” text present (even without a dot) → B=1.
+curve crosses near x≈1 but NO label/coordinate → B=0.
+• axes missing → A=0, B=0; C may be 0 or 1 depending on shape (thus only 0/3 or 1/3 possible).",APE,GPT-4.1,Group2,0.7,4.0,,,0.1538
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration4\Group2_All\gpt-4.1_APE_Group2_Iteration_4_Temp_0.9_topP_0.95,GPT-4.1,Group2,ape-hitl,0.9,0.95,42424242,0.6923,0.5001,0.835,0.7692,0.5795,0.8897,0.5174,0.8512,0.6268,0.8751,0.2863,0.7381,0.6747,0.9509,0.3863,0.8587,0.7061,0.9708,0.0,-0.3077,0.2692,2,0.4224537037037037,0.7102920227920227,18,"TASK
+Grade 26 hand-drawn graphs of the inverse logarithmic function (base 2) against the attached memorandum drawing. Grade each student independently.
+
+HARD RULE ABOUT AXES
+• If either Cartesian axis is absent or the curve is drawn without axes, assign 0/3 (A=0, B=0, C=0). Do not infer anything from the curve alone.
+• If axes exist but are clearly unrelated to the graded curve (e.g., drawn elsewhere), treat as “axes absent”.
+
+CURVE SELECTION
+• Grade ONLY the inverse log curve. If multiple curves appear, prefer the one labeled “h⁻¹”. If none is labeled, choose the curve that approaches the y-axis from the RIGHT and lies near the first quadrant. Do NOT use marks/labels from a different curve (e.g., “h”) to award any criterion.
+
+SCORING (three binary checks → total 0–3)
+Check A — Asymptote at the y-axis (x=0)
+• AWARD if the entire h⁻¹ curve stays strictly in x>0.
+• Small nibs from pen thickness that just touch are OK. 
+• DEDUCT if a continuous piece of the drawn curve lies on or left of the y-axis, OR the curve runs along the y-axis for a visible segment, OR it clearly passes from right to left at any point.
+• Ignore arrowheads, ticks, labels, faint guidelines/erasures. A single plotted point left of the axis (e.g., (½;−1)) does NOT cause a deduction.
+
+Check B — x-intercept exactly at (1;0)  [EVIDENCE REQUIRED]
+• AWARD if at least ONE of the following appears:
+  – the text “(1;0)” or “(1,0)” anywhere on the page, OR
+  – the text “x=1” anywhere on the page, OR
+  – a dot/crossing on the x-axis at x≈1 WITH a nearby explicit “1” label.
+• DO NOT award for: unlabeled dot on the axis; a “1” written near the axis without a dot; a bare crossing of the curve through the x-axis; “(0;1)”; “(½;−1)”; “2”; ticks or generic marks.
+• Tolerance for the labeled dot/crossing: accept positions within 0.9–1.1 of the tick spacing.
+
+Check C — Logarithmic shape (base 2)
+• AWARD only if ALL of the following base conditions hold:
+  1) The chosen curve is **monotone increasing** on its drawn branch, and
+  2) It is **concave down** over most of the visible branch.
+• AND at least **one** of the two behavior cues holds (→ require 3 of 4 cues total):
+  3) The **left end** approaches the y-axis (x close to 0⁺) more steeply than the right end (i.e., left is “more vertical”, right is “flatter”), and/or
+  4) The **left end** heads downward (toward negative y) as it nears the y-axis, while the right tail flattens as x increases.
+• DEDUCT (C=0) for any of: obvious exponential (concave up), nearly straight line with no visible curvature, decreasing behavior, hyperbolic-looking branch that tracks along the y-axis, or a branch that extends visibly into x≤0.
+• Borderline award is allowed only when the ends clearly bend and the steep-to-flat pattern is evident (e.g., S17-type). Otherwise C=0.
+
+TIE-BREAKERS
+• Never infer B from curve crossing alone. If the explicit evidence list is missing, set B=0.
+• “1/3” should be rare: use it only when exactly one of C, B, A clearly holds.
+
+WHAT TO IGNORE
+• Page ruling, smudges, erasures, arrowheads, ticks, faint guidelines, labels like “h⁻¹” that overlap the curve. These are not the curve.
+
+OUTPUT CONTRACT (strict, parseable)
+For EACH student 1..26, output exactly this block — no extra prose, no extra blank lines, and do not restate other students. The token “/3” must appear exactly once per student.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]  <-- maps to C,B,A respectively
+Reasons:
+• Shape: <one sentence stating why awarded/deducted for C using the cues above>
+• x-intercept: <one sentence for B; cite explicit evidence or the lack thereof>
+• Asymptote: <one sentence for A; mention crossing/overlap or staying in x>0>
+
+CALIBRATION SNIPPETS (DO NOT OUTPUT; for decision consistency)
+(hyperbolic/overlaps y-axis): lower “h⁻¹” runs along/crosses the y-axis and is not concave down → A=0, C=0, B=0 ⇒ 0/3.
+(lower straight-ish segment): monotone but almost linear, no concave-down log shape → C=0. If axes present and no B evidence → 0/3 (or 1/3 only if A=1 and C=0 fails).
+(no axes): Axes absent → 0/3.
+(writes “(0;1)”, not “(1;0)”): B=0 unless explicit “(1;0)”/“x=1”/labeled dot at x≈1 is also present.
+(borderline but bends at ends and is increasing): C=1 provided the steep-to-flat pattern is visible.
+“(1;0)” text present (even without a dot) → B=1.
+curve crosses near x≈1 but NO label/coordinate → B=0.
+• axes missing → A=0, B=0; C may be 0 or 1 depending on shape (thus only 0/3 or 1/3 possible).",APE,GPT-4.1,Group2,0.9,4.0,,,0.0

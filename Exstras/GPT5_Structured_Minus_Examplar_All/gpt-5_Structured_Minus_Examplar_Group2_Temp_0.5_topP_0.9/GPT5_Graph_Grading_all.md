@@ -1,0 +1,28 @@
+Here are the marks per student (out of 3), using the memo’s three criteria: shape, x‑intercept at (1;0), and asymptote respected (no crossing of y‑axis).
+
+- S1: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S2: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S3: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S4: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S5: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S6: 1/3 – shape only; no (1;0); graph crosses y‑axis.
+- S7: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S8: 2/3 – shape ok, no (1;0); asymptote respected.
+- S9: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S10: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S11: 2/3 – shape and (1;0) ok; crosses y‑axis (asymptote not respected).
+- S12: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S13: 2/3 – shape ok, no (1;0); asymptote respected.
+- S14: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S15: 2/3 – shape ok, no (1;0); asymptote respected.
+- S16: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S17: 2/3 – shape ok, no (1;0); asymptote respected.
+- S18: 2/3 – shape ok, no (1;0); asymptote respected.
+- S19: 1/3 – shape only; no (1;0); crosses y‑axis.
+- S20: 2/3 – shape ok, (1;0) not clearly indicated; asymptote respected.
+- S21: 3/3 – shape ok, (1;0) shown, asymptote respected.
+- S22: 0/3 – wrong/unclear shape, no (1;0), crosses y‑axis.
+- S23: 0/3 – no axes/intercept/asymptote evidenced.
+- S24: 0/3 – no axes/intercept/asymptote evidenced.
+- S25: 0/3 – no graph to assess.
+- S26: 0/3 – blank.

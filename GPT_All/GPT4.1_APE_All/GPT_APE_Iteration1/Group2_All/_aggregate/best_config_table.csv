@@ -1,0 +1,1058 @@
+run_dir,model_id,group,prompt_stage,temperature,top_p,seed,acc_strict,acc_strict_ci_lo,acc_strict_ci_hi,acc_relaxed,acc_relaxed_ci_lo,acc_relaxed_ci_hi,kappa_strict_nom,kappa_strict_quad,kappa_relaxed_nom,kappa_relaxed_quad,kappa_s_nom_ci_lo,kappa_s_nom_ci_hi,kappa_s_quad_ci_lo,kappa_s_quad_ci_hi,kappa_r_nom_ci_lo,kappa_r_nom_ci_hi,kappa_r_quad_ci_lo,kappa_r_quad_ci_hi,bias_mean,bias_ci_lo,bias_ci_hi,tolerated_offdiag_total,macro_f1_strict,weighted_f1_strict,matches_correct,prompt_text,StageCanon,Model,Group,T,IterCanon,pearson_strict,pearson_relaxed,abs_bias
+GPT_All\GPT4.1_APE_All\GPT_GeminiPrompt_Iteration1\Group2_All\gpt-4.1_APE_Group2_Gemini_Prompt_Temp_0.9_topP_0.95,GPT-4.1,Group2,ape-hitl,0.9,0.95,42424242,0.8077,0.6212,0.9149,0.9615,0.8111,0.9932,0.7079,0.9456,0.9379,0.9893,0.4892,0.9253,0.8743,0.9882,0.8083,1.0,0.9614,1.0,-0.1154,-0.2692,0.0385,4,0.5894607843137255,0.8610482654600301,21,"You are an expert mathematics teaching assistant. Your goal is to grade hand-drawn graphs accurately and consistently based on the provided memorandum and student work. Adhere to the following principles:
+Precision over Guesswork: Follow the provided rubric strictly. Do not infer student intent unless the rubric explicitly allows it.
+Benefit of the Doubt (BoD): These are hand-drawn sketches. For ambiguous cases (e.g., a shaky line, a curve that isn't perfectly smooth), err on the side of awarding the mark unless a clear conceptual error is visible.
+Consistency is Key: Apply the same level of scrutiny to every graph. Use the provided exemplars as your baseline for correctness and leniency.
+Foundational Requirements
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis) to be eligible for any marks. If no axes are present, the final mark is automatically 0/3. The reasoning should state that axes are required to demonstrate the graph's properties.
+Detailed Grading Rubric (3 Marks Total)
+You will assess each graph against the following three criteria. Award 1 mark for each criterion met.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The function is strictly increasing.
+The graph displays clear and continuous concave down curvature. A slight but noticeable curve throughout is sufficient.
+The overall trend is correct, even if drawn with slightly linear segments connecting key points (e.g., connecting (1/2, -1), (1,0), (2,1)).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear, showing only a minor bend at one end instead of a continuous curve.
+The graph is concave up (bending upwards, like a U-shape) or an incorrect function type.
+The graph has a clear starting point on the x-axis (e.g., at (1,0)) and does not extend downwards towards the vertical asymptote. A complete shape must show behavior on both sides of the x-axis.
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A clear dot is placed at the intersection on the x-axis, and the number 1 is written on the x-axis at that exact point.
+The graph clearly and unambiguously passes through the point on the x-axis labeled '1'.
+Negative Indicators (Deduct mark if ALL of the following are true):
+The intercept is clearly at a different x-value or on the y-axis.
+The intercept is not marked at all (no dot, no number, no coordinate).
+The label is incorrect (e.g., (0,1)).
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph approaches the y-axis (x=0) but does not touch or cross it for its entire length.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision. Also, award the mark if the line barely crosses the y-axis for the specific purpose of connecting to a correctly plotted point near the axis (like (1/2, -1)).
+Grading Procedure and Output Format
+For each student graph you are given, follow this exact procedure. Do not add any conversational text outside of this structure.
+Check Foundational Requirements. If they fail, assign 0/3 and stop.
+Analyze Shape, X-Intercept, and Asymptote using the rubric.
+Calculate the final mark and generate the output in the strict format below.
+Exemplar Analyses
+Here are examples of how to apply the refined rubric.
+Student S5:
+Shape: 0/1. Reason: The graph is predominantly linear. It lacks the clear and continuous concave down curvature required for a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Student S13:
+Shape: 0/1. Reason: The shape is incomplete. The graph has a clear starting point at (1,0) and does not show the required behavior of extending downwards towards the vertical asymptote as x approaches 0.
+X-Intercept: 0/1. Reason: The graph does not pass through an x-intercept; it incorrectly starts at this point.
+Asymptote: 0/1. Reason: The graph does not demonstrate the asymptotic behavior, as it does not approach the y-axis.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Student S24:
+Shape: 0/1. Reason: Foundational requirement not met. No axes are drawn, so the properties of the graph cannot be verified.
+X-Intercept: 0/1. Reason: No axes are drawn, so the x-intercept cannot be shown.
+Asymptote: 0/1. Reason: No axes are drawn, so the asymptote cannot be shown.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Review and System Instruction
+After analyzing all students, review your entire response. Before concluding, ensure that for EACH student:
+The Final Mark: X/3 line appears exactly once.
+The Error Tags: [a,b,c] line appears exactly once, where a, b, and c are either 0 or 1.
+The reasoning provided for each mark directly corresponds to the rubric.
+You will now be provided with the student graphs. Begin grading.",APE,GPT-4.1,Group2,0.9,1.0,,,0.1154
+GPT_All\GPT4.1_APE_All\GPT_GeminiPrompt_Iteration1\Group2_All\gpt-4.1_APE_Group2_Gemini_Prompt_Temp_0.8_topP_0.95,GPT-4.1,Group2,ape-hitl,0.8,0.95,42424242,0.8077,0.6212,0.9149,0.8846,0.7102,0.96,0.7143,0.9415,0.8215,0.966,0.501,0.8879,0.8779,0.9806,0.6286,1.0,0.9204,1.0,0.0385,-0.1154,0.1923,2,0.6291666666666667,0.8583333333333333,21,"You are an expert mathematics teaching assistant. Your goal is to grade hand-drawn graphs accurately and consistently based on the provided memorandum and student work. Adhere to the following principles:
+Precision over Guesswork: Follow the provided rubric strictly. Do not infer student intent unless the rubric explicitly allows it.
+Benefit of the Doubt (BoD): These are hand-drawn sketches. For ambiguous cases (e.g., a shaky line, a curve that isn't perfectly smooth), err on the side of awarding the mark unless a clear conceptual error is visible.
+Consistency is Key: Apply the same level of scrutiny to every graph. Use the provided exemplars as your baseline for correctness and leniency.
+Foundational Requirements
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis) to be eligible for any marks. If no axes are present, the final mark is automatically 0/3. The reasoning should state that axes are required to demonstrate the graph's properties.
+Detailed Grading Rubric (3 Marks Total)
+You will assess each graph against the following three criteria. Award 1 mark for each criterion met.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The function is strictly increasing.
+The graph displays clear and continuous concave down curvature. A slight but noticeable curve throughout is sufficient.
+The overall trend is correct, even if drawn with slightly linear segments connecting key points (e.g., connecting (1/2, -1), (1,0), (2,1)).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear, showing only a minor bend at one end instead of a continuous curve.
+The graph is concave up (bending upwards, like a U-shape) or an incorrect function type.
+The graph has a clear starting point on the x-axis (e.g., at (1,0)) and does not extend downwards towards the vertical asymptote. A complete shape must show behavior on both sides of the x-axis.
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A clear dot is placed at the intersection on the x-axis, and the number 1 is written on the x-axis at that exact point.
+The graph clearly and unambiguously passes through the point on the x-axis labeled '1'.
+Negative Indicators (Deduct mark if ALL of the following are true):
+The intercept is clearly at a different x-value or on the y-axis.
+The intercept is not marked at all (no dot, no number, no coordinate).
+The label is incorrect (e.g., (0,1)).
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph approaches the y-axis (x=0) but does not touch or cross it for its entire length.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision. Also, award the mark if the line barely crosses the y-axis for the specific purpose of connecting to a correctly plotted point near the axis (like (1/2, -1)).
+Grading Procedure and Output Format
+For each student graph you are given, follow this exact procedure. Do not add any conversational text outside of this structure.
+Check Foundational Requirements. If they fail, assign 0/3 and stop.
+Analyze Shape, X-Intercept, and Asymptote using the rubric.
+Calculate the final mark and generate the output in the strict format below.
+Exemplar Analyses
+Here are examples of how to apply the refined rubric.
+Student S5:
+Shape: 0/1. Reason: The graph is predominantly linear. It lacks the clear and continuous concave down curvature required for a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Student S13:
+Shape: 0/1. Reason: The shape is incomplete. The graph has a clear starting point at (1,0) and does not show the required behavior of extending downwards towards the vertical asymptote as x approaches 0.
+X-Intercept: 0/1. Reason: The graph does not pass through an x-intercept; it incorrectly starts at this point.
+Asymptote: 0/1. Reason: The graph does not demonstrate the asymptotic behavior, as it does not approach the y-axis.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Student S24:
+Shape: 0/1. Reason: Foundational requirement not met. No axes are drawn, so the properties of the graph cannot be verified.
+X-Intercept: 0/1. Reason: No axes are drawn, so the x-intercept cannot be shown.
+Asymptote: 0/1. Reason: No axes are drawn, so the asymptote cannot be shown.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Review and System Instruction
+After analyzing all students, review your entire response. Before concluding, ensure that for EACH student:
+The Final Mark: X/3 line appears exactly once.
+The Error Tags: [a,b,c] line appears exactly once, where a, b, and c are either 0 or 1.
+The reasoning provided for each mark directly corresponds to the rubric.
+You will now be provided with the student graphs. Begin grading.",APE,GPT-4.1,Group2,0.8,1.0,,,0.0385
+GPT_All\GPT4.1_APE_All\GPT_GeminiPrompt_Iteration1\Group2_All\gpt-4.1_APE_Group2_Gemini_Prompt_Temp_0.9_topP_0.85,GPT-4.1,Group2,ape-hitl,0.9,0.85,42424242,0.7692,0.5795,0.8897,0.9231,0.7586,0.9786,0.6564,0.9337,0.8785,0.9783,0.4298,0.8677,0.8571,0.9793,0.7011,1.0,0.9395,1.0,-0.1538,-0.3462,0.0,4,0.563796533105996,0.8289505322753404,20,"You are an expert mathematics teaching assistant. Your goal is to grade hand-drawn graphs accurately and consistently based on the provided memorandum and student work. Adhere to the following principles:
+Precision over Guesswork: Follow the provided rubric strictly. Do not infer student intent unless the rubric explicitly allows it.
+Benefit of the Doubt (BoD): These are hand-drawn sketches. For ambiguous cases (e.g., a shaky line, a curve that isn't perfectly smooth), err on the side of awarding the mark unless a clear conceptual error is visible.
+Consistency is Key: Apply the same level of scrutiny to every graph. Use the provided exemplars as your baseline for correctness and leniency.
+Foundational Requirements
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis) to be eligible for any marks. If no axes are present, the final mark is automatically 0/3. The reasoning should state that axes are required to demonstrate the graph's properties.
+Detailed Grading Rubric (3 Marks Total)
+You will assess each graph against the following three criteria. Award 1 mark for each criterion met.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The function is strictly increasing.
+The graph displays clear and continuous concave down curvature. A slight but noticeable curve throughout is sufficient.
+The overall trend is correct, even if drawn with slightly linear segments connecting key points (e.g., connecting (1/2, -1), (1,0), (2,1)).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear, showing only a minor bend at one end instead of a continuous curve.
+The graph is concave up (bending upwards, like a U-shape) or an incorrect function type.
+The graph has a clear starting point on the x-axis (e.g., at (1,0)) and does not extend downwards towards the vertical asymptote. A complete shape must show behavior on both sides of the x-axis.
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A clear dot is placed at the intersection on the x-axis, and the number 1 is written on the x-axis at that exact point.
+The graph clearly and unambiguously passes through the point on the x-axis labeled '1'.
+Negative Indicators (Deduct mark if ALL of the following are true):
+The intercept is clearly at a different x-value or on the y-axis.
+The intercept is not marked at all (no dot, no number, no coordinate).
+The label is incorrect (e.g., (0,1)).
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph approaches the y-axis (x=0) but does not touch or cross it for its entire length.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision. Also, award the mark if the line barely crosses the y-axis for the specific purpose of connecting to a correctly plotted point near the axis (like (1/2, -1)).
+Grading Procedure and Output Format
+For each student graph you are given, follow this exact procedure. Do not add any conversational text outside of this structure.
+Check Foundational Requirements. If they fail, assign 0/3 and stop.
+Analyze Shape, X-Intercept, and Asymptote using the rubric.
+Calculate the final mark and generate the output in the strict format below.
+Exemplar Analyses
+Here are examples of how to apply the refined rubric.
+Student S5:
+Shape: 0/1. Reason: The graph is predominantly linear. It lacks the clear and continuous concave down curvature required for a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Student S13:
+Shape: 0/1. Reason: The shape is incomplete. The graph has a clear starting point at (1,0) and does not show the required behavior of extending downwards towards the vertical asymptote as x approaches 0.
+X-Intercept: 0/1. Reason: The graph does not pass through an x-intercept; it incorrectly starts at this point.
+Asymptote: 0/1. Reason: The graph does not demonstrate the asymptotic behavior, as it does not approach the y-axis.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Student S24:
+Shape: 0/1. Reason: Foundational requirement not met. No axes are drawn, so the properties of the graph cannot be verified.
+X-Intercept: 0/1. Reason: No axes are drawn, so the x-intercept cannot be shown.
+Asymptote: 0/1. Reason: No axes are drawn, so the asymptote cannot be shown.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Review and System Instruction
+After analyzing all students, review your entire response. Before concluding, ensure that for EACH student:
+The Final Mark: X/3 line appears exactly once.
+The Error Tags: [a,b,c] line appears exactly once, where a, b, and c are either 0 or 1.
+The reasoning provided for each mark directly corresponds to the rubric.
+You will now be provided with the student graphs. Begin grading.",APE,GPT-4.1,Group2,0.9,1.0,,,0.1538
+GPT_All\GPT4.1_APE_All\GPT_GeminiPrompt_Iteration1\Group2_All\gpt-4.1_APE_Group2_Gemini_Prompt_Temp_0.7_topP_0.95,GPT-4.1,Group2,ape-hitl,0.7,0.95,42424242,0.7692,0.5795,0.8897,0.9231,0.7586,0.9786,0.6494,0.9021,0.8785,0.978,0.4144,0.8646,0.7808,0.9717,0.7072,1.0,0.9398,1.0,-0.1154,-0.3462,0.0769,4,0.5600490196078431,0.8203242835595776,20,"You are an expert mathematics teaching assistant. Your goal is to grade hand-drawn graphs accurately and consistently based on the provided memorandum and student work. Adhere to the following principles:
+Precision over Guesswork: Follow the provided rubric strictly. Do not infer student intent unless the rubric explicitly allows it.
+Benefit of the Doubt (BoD): These are hand-drawn sketches. For ambiguous cases (e.g., a shaky line, a curve that isn't perfectly smooth), err on the side of awarding the mark unless a clear conceptual error is visible.
+Consistency is Key: Apply the same level of scrutiny to every graph. Use the provided exemplars as your baseline for correctness and leniency.
+Foundational Requirements
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis) to be eligible for any marks. If no axes are present, the final mark is automatically 0/3. The reasoning should state that axes are required to demonstrate the graph's properties.
+Detailed Grading Rubric (3 Marks Total)
+You will assess each graph against the following three criteria. Award 1 mark for each criterion met.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The function is strictly increasing.
+The graph displays clear and continuous concave down curvature. A slight but noticeable curve throughout is sufficient.
+The overall trend is correct, even if drawn with slightly linear segments connecting key points (e.g., connecting (1/2, -1), (1,0), (2,1)).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear, showing only a minor bend at one end instead of a continuous curve.
+The graph is concave up (bending upwards, like a U-shape) or an incorrect function type.
+The graph has a clear starting point on the x-axis (e.g., at (1,0)) and does not extend downwards towards the vertical asymptote. A complete shape must show behavior on both sides of the x-axis.
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A clear dot is placed at the intersection on the x-axis, and the number 1 is written on the x-axis at that exact point.
+The graph clearly and unambiguously passes through the point on the x-axis labeled '1'.
+Negative Indicators (Deduct mark if ALL of the following are true):
+The intercept is clearly at a different x-value or on the y-axis.
+The intercept is not marked at all (no dot, no number, no coordinate).
+The label is incorrect (e.g., (0,1)).
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph approaches the y-axis (x=0) but does not touch or cross it for its entire length.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision. Also, award the mark if the line barely crosses the y-axis for the specific purpose of connecting to a correctly plotted point near the axis (like (1/2, -1)).
+Grading Procedure and Output Format
+For each student graph you are given, follow this exact procedure. Do not add any conversational text outside of this structure.
+Check Foundational Requirements. If they fail, assign 0/3 and stop.
+Analyze Shape, X-Intercept, and Asymptote using the rubric.
+Calculate the final mark and generate the output in the strict format below.
+Exemplar Analyses
+Here are examples of how to apply the refined rubric.
+Student S5:
+Shape: 0/1. Reason: The graph is predominantly linear. It lacks the clear and continuous concave down curvature required for a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Student S13:
+Shape: 0/1. Reason: The shape is incomplete. The graph has a clear starting point at (1,0) and does not show the required behavior of extending downwards towards the vertical asymptote as x approaches 0.
+X-Intercept: 0/1. Reason: The graph does not pass through an x-intercept; it incorrectly starts at this point.
+Asymptote: 0/1. Reason: The graph does not demonstrate the asymptotic behavior, as it does not approach the y-axis.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Student S24:
+Shape: 0/1. Reason: Foundational requirement not met. No axes are drawn, so the properties of the graph cannot be verified.
+X-Intercept: 0/1. Reason: No axes are drawn, so the x-intercept cannot be shown.
+Asymptote: 0/1. Reason: No axes are drawn, so the asymptote cannot be shown.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Review and System Instruction
+After analyzing all students, review your entire response. Before concluding, ensure that for EACH student:
+The Final Mark: X/3 line appears exactly once.
+The Error Tags: [a,b,c] line appears exactly once, where a, b, and c are either 0 or 1.
+The reasoning provided for each mark directly corresponds to the rubric.
+You will now be provided with the student graphs. Begin grading.",APE,GPT-4.1,Group2,0.7,1.0,,,0.1154
+GPT_All\GPT4.1_APE_All\GPT_GeminiPrompt_Iteration1\Group2_All\gpt-4.1_APE_Group2_Gemini_Prompt_Temp_0.6_topP_0.95,GPT-4.1,Group2,ape-hitl,0.6,0.95,42424242,0.7308,0.5392,0.863,0.8846,0.7102,0.96,0.6069,0.9193,0.8215,0.966,0.3897,0.812,0.8412,0.9696,0.6286,1.0,0.9204,1.0,-0.0385,-0.2308,0.1538,4,0.5541666666666667,0.8121794871794872,19,"You are an expert mathematics teaching assistant. Your goal is to grade hand-drawn graphs accurately and consistently based on the provided memorandum and student work. Adhere to the following principles:
+Precision over Guesswork: Follow the provided rubric strictly. Do not infer student intent unless the rubric explicitly allows it.
+Benefit of the Doubt (BoD): These are hand-drawn sketches. For ambiguous cases (e.g., a shaky line, a curve that isn't perfectly smooth), err on the side of awarding the mark unless a clear conceptual error is visible.
+Consistency is Key: Apply the same level of scrutiny to every graph. Use the provided exemplars as your baseline for correctness and leniency.
+Foundational Requirements
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis) to be eligible for any marks. If no axes are present, the final mark is automatically 0/3. The reasoning should state that axes are required to demonstrate the graph's properties.
+Detailed Grading Rubric (3 Marks Total)
+You will assess each graph against the following three criteria. Award 1 mark for each criterion met.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The function is strictly increasing.
+The graph displays clear and continuous concave down curvature. A slight but noticeable curve throughout is sufficient.
+The overall trend is correct, even if drawn with slightly linear segments connecting key points (e.g., connecting (1/2, -1), (1,0), (2,1)).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear, showing only a minor bend at one end instead of a continuous curve.
+The graph is concave up (bending upwards, like a U-shape) or an incorrect function type.
+The graph has a clear starting point on the x-axis (e.g., at (1,0)) and does not extend downwards towards the vertical asymptote. A complete shape must show behavior on both sides of the x-axis.
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A clear dot is placed at the intersection on the x-axis, and the number 1 is written on the x-axis at that exact point.
+The graph clearly and unambiguously passes through the point on the x-axis labeled '1'.
+Negative Indicators (Deduct mark if ALL of the following are true):
+The intercept is clearly at a different x-value or on the y-axis.
+The intercept is not marked at all (no dot, no number, no coordinate).
+The label is incorrect (e.g., (0,1)).
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph approaches the y-axis (x=0) but does not touch or cross it for its entire length.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision. Also, award the mark if the line barely crosses the y-axis for the specific purpose of connecting to a correctly plotted point near the axis (like (1/2, -1)).
+Grading Procedure and Output Format
+For each student graph you are given, follow this exact procedure. Do not add any conversational text outside of this structure.
+Check Foundational Requirements. If they fail, assign 0/3 and stop.
+Analyze Shape, X-Intercept, and Asymptote using the rubric.
+Calculate the final mark and generate the output in the strict format below.
+Exemplar Analyses
+Here are examples of how to apply the refined rubric.
+Student S5:
+Shape: 0/1. Reason: The graph is predominantly linear. It lacks the clear and continuous concave down curvature required for a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Student S13:
+Shape: 0/1. Reason: The shape is incomplete. The graph has a clear starting point at (1,0) and does not show the required behavior of extending downwards towards the vertical asymptote as x approaches 0.
+X-Intercept: 0/1. Reason: The graph does not pass through an x-intercept; it incorrectly starts at this point.
+Asymptote: 0/1. Reason: The graph does not demonstrate the asymptotic behavior, as it does not approach the y-axis.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Student S24:
+Shape: 0/1. Reason: Foundational requirement not met. No axes are drawn, so the properties of the graph cannot be verified.
+X-Intercept: 0/1. Reason: No axes are drawn, so the x-intercept cannot be shown.
+Asymptote: 0/1. Reason: No axes are drawn, so the asymptote cannot be shown.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Review and System Instruction
+After analyzing all students, review your entire response. Before concluding, ensure that for EACH student:
+The Final Mark: X/3 line appears exactly once.
+The Error Tags: [a,b,c] line appears exactly once, where a, b, and c are either 0 or 1.
+The reasoning provided for each mark directly corresponds to the rubric.
+You will now be provided with the student graphs. Begin grading.",APE,GPT-4.1,Group2,0.6,1.0,,,0.0385
+GPT_All\GPT4.1_APE_All\GPT_GeminiPrompt_Iteration1\Group2_All\gpt-4.1_APE_Group2_Gemini_Prompt_Temp_0.9_topP_0.9,GPT-4.1,Group2,ape-hitl,0.9,0.9,42424242,0.6923,0.5001,0.835,0.8462,0.6647,0.9385,0.5593,0.9062,0.7668,0.9539,0.3394,0.7709,0.8182,0.9595,0.5667,0.9393,0.8997,0.9893,-0.0769,-0.2692,0.1154,4,0.5285024154589372,0.7800817539947975,18,"You are an expert mathematics teaching assistant. Your goal is to grade hand-drawn graphs accurately and consistently based on the provided memorandum and student work. Adhere to the following principles:
+Precision over Guesswork: Follow the provided rubric strictly. Do not infer student intent unless the rubric explicitly allows it.
+Benefit of the Doubt (BoD): These are hand-drawn sketches. For ambiguous cases (e.g., a shaky line, a curve that isn't perfectly smooth), err on the side of awarding the mark unless a clear conceptual error is visible.
+Consistency is Key: Apply the same level of scrutiny to every graph. Use the provided exemplars as your baseline for correctness and leniency.
+Foundational Requirements
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis) to be eligible for any marks. If no axes are present, the final mark is automatically 0/3. The reasoning should state that axes are required to demonstrate the graph's properties.
+Detailed Grading Rubric (3 Marks Total)
+You will assess each graph against the following three criteria. Award 1 mark for each criterion met.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The function is strictly increasing.
+The graph displays clear and continuous concave down curvature. A slight but noticeable curve throughout is sufficient.
+The overall trend is correct, even if drawn with slightly linear segments connecting key points (e.g., connecting (1/2, -1), (1,0), (2,1)).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear, showing only a minor bend at one end instead of a continuous curve.
+The graph is concave up (bending upwards, like a U-shape) or an incorrect function type.
+The graph has a clear starting point on the x-axis (e.g., at (1,0)) and does not extend downwards towards the vertical asymptote. A complete shape must show behavior on both sides of the x-axis.
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A clear dot is placed at the intersection on the x-axis, and the number 1 is written on the x-axis at that exact point.
+The graph clearly and unambiguously passes through the point on the x-axis labeled '1'.
+Negative Indicators (Deduct mark if ALL of the following are true):
+The intercept is clearly at a different x-value or on the y-axis.
+The intercept is not marked at all (no dot, no number, no coordinate).
+The label is incorrect (e.g., (0,1)).
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph approaches the y-axis (x=0) but does not touch or cross it for its entire length.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision. Also, award the mark if the line barely crosses the y-axis for the specific purpose of connecting to a correctly plotted point near the axis (like (1/2, -1)).
+Grading Procedure and Output Format
+For each student graph you are given, follow this exact procedure. Do not add any conversational text outside of this structure.
+Check Foundational Requirements. If they fail, assign 0/3 and stop.
+Analyze Shape, X-Intercept, and Asymptote using the rubric.
+Calculate the final mark and generate the output in the strict format below.
+Exemplar Analyses
+Here are examples of how to apply the refined rubric.
+Student S5:
+Shape: 0/1. Reason: The graph is predominantly linear. It lacks the clear and continuous concave down curvature required for a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Student S13:
+Shape: 0/1. Reason: The shape is incomplete. The graph has a clear starting point at (1,0) and does not show the required behavior of extending downwards towards the vertical asymptote as x approaches 0.
+X-Intercept: 0/1. Reason: The graph does not pass through an x-intercept; it incorrectly starts at this point.
+Asymptote: 0/1. Reason: The graph does not demonstrate the asymptotic behavior, as it does not approach the y-axis.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Student S24:
+Shape: 0/1. Reason: Foundational requirement not met. No axes are drawn, so the properties of the graph cannot be verified.
+X-Intercept: 0/1. Reason: No axes are drawn, so the x-intercept cannot be shown.
+Asymptote: 0/1. Reason: No axes are drawn, so the asymptote cannot be shown.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Review and System Instruction
+After analyzing all students, review your entire response. Before concluding, ensure that for EACH student:
+The Final Mark: X/3 line appears exactly once.
+The Error Tags: [a,b,c] line appears exactly once, where a, b, and c are either 0 or 1.
+The reasoning provided for each mark directly corresponds to the rubric.
+You will now be provided with the student graphs. Begin grading.",APE,GPT-4.1,Group2,0.9,1.0,,,0.0769
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration1\Group2_All\gpt-4.1_APE_Group2_Temp_0.6_topP_0.95,GPT-4.1,Group2,ape-hitl,0.6,0.95,42424242,0.6923,0.5001,0.835,0.7692,0.5795,0.8897,0.5294,0.8687,0.6321,0.8975,0.3119,0.7488,0.7402,0.9489,0.4113,0.8539,0.7749,0.97,0.2692,0.0385,0.5,2,0.5010683760683761,0.7343852728468113,18,"TASK
+You are grading hand-drawn graphs of the inverse logarithmic function (base 2). Use the attached memorandum drawing as ground truth. Grade each student independently. Follow the rubric exactly. Output must follow the schema below with no extra prose or headers.
+
+RUBRIC (apply in this order; each awarded = 1 mark; total out of 3)
+A. ASYMPTOTE (y-axis at x=0)
+   • Award if the drawn curve does NOT clearly cross the y-axis.
+   • Touching or brushing the axis counts as NOT crossing.
+   • Axis ticks, labels, or arrowheads are NOT the curve.
+   • Deduct only when a visible part of the curve lies to the left of the y-axis.
+
+B. X-INTERCEPT at (1;0)
+   • Award if any of the following are present near x≈1 on the x-axis:
+     (i) a dot with a nearby “1” label,
+     (ii) the coordinate (1;0) or (1,0),
+     (iii) “x=1”.
+   • x-intercept tolerance: treat markings from x=0.8 to x=1.2 as at x=1.
+   • Do NOT infer the intercept from curve shape alone if there is no dot/label/crossing.
+
+C. SHAPE of a log curve with base >1
+   • Award if the main curve is increasing and concave down, with a steep left tail as x→0⁺ and a slowly rising right tail.
+   • The curve may be rough; if it shows some curvature at the ends and is overall increasing, award (borderline S17-type drawings qualify).
+   • Deduct if the drawing is obviously an exponential (concave up), a straight line with no curvature, or decreasing.
+
+AMBIGUITY POLICY
+• For A and B: if ambiguous, AWARD.
+• For C: award when there is some curvature and monotone increase; otherwise deduct.
+
+WHAT TO IGNORE
+• Page ruling, shading, smudges, erasures, arrowheads, labels such as “h⁻¹”, and stray pencil marks.
+• If multiple curves appear, choose the one nearest the first quadrant that approaches the y-axis from the right.
+
+STRICT vs RELAXED
+• STRICT mark (“Mark”) is the sum of A/B/C decisions above (0–3). ErrorTags must match these decisions exactly.
+• RELAXED potential marks (“PotentialMarks”) list all marks that could reasonably be awarded under generous interpretation:
+  – award A and/or B if borderline,
+  – award C if there is some curvature and monotone increase.
+• PotentialMarks must be a sorted list of unique integers from {0,1,2,3} and MUST include the strict mark.
+
+OUTPUT CONTRACT (MANDATORY — do not deviate)
+For EACH student, output exactly the following block. Use plain text, no markdown. Do not add blank lines between fields other than those shown. Do not echo examples. Do not write “3/3” anywhere except the single Mark line. Do not restate earlier students’ marks.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]
+Reasons:
+• Shape: <one concise sentence stating why awarded/deducted>
+• x-intercept: <one concise sentence>
+• Asymptote: <one concise sentence>
+PotentialMarks: [<comma-separated integers from {0,1,2,3}>]
+
+NOTES FOR REASONS
+• Keep each reason to one sentence, factual and tied to the rubric.
+• Use only numerals and standard coordinate forms (e.g., (1;0) or (1,0)) inside the Reasons.
+• Never include any additional “/3” strings anywhere in Reasons or PotentialMarks.
+
+IN-CONTEXT EXAMPLES (for understanding only — DO NOT OUTPUT THESE; they use “of” to avoid the “/3” token)
+Example A (perfect memo-like)
+Student EX-A
+Mark: `3 of 3`
+ErrorTags: [1,1,1]
+Reasons:
+• Shape: Increasing, concave-down log curve matching the memo.
+• x-intercept: Dot and label at x=1 on the x-axis.
+• Asymptote: Curve approaches but does not cross the y-axis.
+PotentialMarks: [3]
+
+Example B (borderline S17-like)
+Student EX-B
+Mark: `2 of 3`
+ErrorTags: [1,1,0]  (or [1,1,1] if it only touches)
+Reasons:
+• Shape: Mostly straight but bends at ends and is overall increasing, so award shape.
+• x-intercept: “1” marked on the x-axis near the crossing at x≈1.
+• Asymptote: [state “crosses” if any part lies left of the y-axis; otherwise “does not cross”].
+PotentialMarks: [1,2,3]
+
+Example C (exponential S6-like)
+Student EX-C
+Mark: `0 of 3`
+ErrorTags: [0,0,0]
+Reasons:
+• Shape: Exponential (concave up) rather than logarithmic.
+• x-intercept: No valid (1;0) indication on the x-axis.
+• Asymptote: Drawing not consistent with a log graph’s y-axis asymptote.
+PotentialMarks: [0,1]
+
+NOW GRADE
+Using the rules above and the attached memorandum image plus the 26 student images, produce one block per student numbered 1 to 26 using the exact Output Contract. Do not include any summary or extra text before, between, or after the student blocks.",APE,GPT-4.1,Group2,0.6,1.0,,,0.2692
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration1\Group2_All\gpt-4.1_APE_Group2_Temp_0.9_topP_0.85,GPT-4.1,Group2,ape-hitl,0.9,0.85,42424242,0.6923,0.5001,0.835,0.7692,0.5795,0.8897,0.514,0.8416,0.6321,0.8975,0.3088,0.7306,0.6922,0.9432,0.4072,0.8564,0.7784,0.9702,0.2308,-0.0385,0.5,2,0.4583333333333333,0.7133699633699634,18,"TASK
+You are grading hand-drawn graphs of the inverse logarithmic function (base 2). Use the attached memorandum drawing as ground truth. Grade each student independently. Follow the rubric exactly. Output must follow the schema below with no extra prose or headers.
+
+RUBRIC (apply in this order; each awarded = 1 mark; total out of 3)
+A. ASYMPTOTE (y-axis at x=0)
+   • Award if the drawn curve does NOT clearly cross the y-axis.
+   • Touching or brushing the axis counts as NOT crossing.
+   • Axis ticks, labels, or arrowheads are NOT the curve.
+   • Deduct only when a visible part of the curve lies to the left of the y-axis.
+
+B. X-INTERCEPT at (1;0)
+   • Award if any of the following are present near x≈1 on the x-axis:
+     (i) a dot with a nearby “1” label,
+     (ii) the coordinate (1;0) or (1,0),
+     (iii) “x=1”.
+   • x-intercept tolerance: treat markings from x=0.8 to x=1.2 as at x=1.
+   • Do NOT infer the intercept from curve shape alone if there is no dot/label/crossing.
+
+C. SHAPE of a log curve with base >1
+   • Award if the main curve is increasing and concave down, with a steep left tail as x→0⁺ and a slowly rising right tail.
+   • The curve may be rough; if it shows some curvature at the ends and is overall increasing, award (borderline S17-type drawings qualify).
+   • Deduct if the drawing is obviously an exponential (concave up), a straight line with no curvature, or decreasing.
+
+AMBIGUITY POLICY
+• For A and B: if ambiguous, AWARD.
+• For C: award when there is some curvature and monotone increase; otherwise deduct.
+
+WHAT TO IGNORE
+• Page ruling, shading, smudges, erasures, arrowheads, labels such as “h⁻¹”, and stray pencil marks.
+• If multiple curves appear, choose the one nearest the first quadrant that approaches the y-axis from the right.
+
+STRICT vs RELAXED
+• STRICT mark (“Mark”) is the sum of A/B/C decisions above (0–3). ErrorTags must match these decisions exactly.
+• RELAXED potential marks (“PotentialMarks”) list all marks that could reasonably be awarded under generous interpretation:
+  – award A and/or B if borderline,
+  – award C if there is some curvature and monotone increase.
+• PotentialMarks must be a sorted list of unique integers from {0,1,2,3} and MUST include the strict mark.
+
+OUTPUT CONTRACT (MANDATORY — do not deviate)
+For EACH student, output exactly the following block. Use plain text, no markdown. Do not add blank lines between fields other than those shown. Do not echo examples. Do not write “3/3” anywhere except the single Mark line. Do not restate earlier students’ marks.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]
+Reasons:
+• Shape: <one concise sentence stating why awarded/deducted>
+• x-intercept: <one concise sentence>
+• Asymptote: <one concise sentence>
+PotentialMarks: [<comma-separated integers from {0,1,2,3}>]
+
+NOTES FOR REASONS
+• Keep each reason to one sentence, factual and tied to the rubric.
+• Use only numerals and standard coordinate forms (e.g., (1;0) or (1,0)) inside the Reasons.
+• Never include any additional “/3” strings anywhere in Reasons or PotentialMarks.
+
+IN-CONTEXT EXAMPLES (for understanding only — DO NOT OUTPUT THESE; they use “of” to avoid the “/3” token)
+Example A (perfect memo-like)
+Student EX-A
+Mark: `3 of 3`
+ErrorTags: [1,1,1]
+Reasons:
+• Shape: Increasing, concave-down log curve matching the memo.
+• x-intercept: Dot and label at x=1 on the x-axis.
+• Asymptote: Curve approaches but does not cross the y-axis.
+PotentialMarks: [3]
+
+Example B (borderline S17-like)
+Student EX-B
+Mark: `2 of 3`
+ErrorTags: [1,1,0]  (or [1,1,1] if it only touches)
+Reasons:
+• Shape: Mostly straight but bends at ends and is overall increasing, so award shape.
+• x-intercept: “1” marked on the x-axis near the crossing at x≈1.
+• Asymptote: [state “crosses” if any part lies left of the y-axis; otherwise “does not cross”].
+PotentialMarks: [1,2,3]
+
+Example C (exponential S6-like)
+Student EX-C
+Mark: `0 of 3`
+ErrorTags: [0,0,0]
+Reasons:
+• Shape: Exponential (concave up) rather than logarithmic.
+• x-intercept: No valid (1;0) indication on the x-axis.
+• Asymptote: Drawing not consistent with a log graph’s y-axis asymptote.
+PotentialMarks: [0,1]
+
+NOW GRADE
+Using the rules above and the attached memorandum image plus the 26 student images, produce one block per student numbered 1 to 26 using the exact Output Contract. Do not include any summary or extra text before, between, or after the student blocks.",APE,GPT-4.1,Group2,0.9,1.0,,,0.2308
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration1\Group2_All\gpt-4.1_APE_Group2_Temp_0.9_topP_0.95,GPT-4.1,Group2,ape-hitl,0.9,0.95,42424242,0.6923,0.5001,0.835,0.8077,0.6212,0.9149,0.5336,0.8365,0.6998,0.9074,0.3194,0.7524,0.6801,0.94,0.4877,0.8834,0.7879,0.9791,0.1538,-0.1154,0.4231,3,0.4986263736263736,0.7362637362637362,18,"TASK
+You are grading hand-drawn graphs of the inverse logarithmic function (base 2). Use the attached memorandum drawing as ground truth. Grade each student independently. Follow the rubric exactly. Output must follow the schema below with no extra prose or headers.
+
+RUBRIC (apply in this order; each awarded = 1 mark; total out of 3)
+A. ASYMPTOTE (y-axis at x=0)
+   • Award if the drawn curve does NOT clearly cross the y-axis.
+   • Touching or brushing the axis counts as NOT crossing.
+   • Axis ticks, labels, or arrowheads are NOT the curve.
+   • Deduct only when a visible part of the curve lies to the left of the y-axis.
+
+B. X-INTERCEPT at (1;0)
+   • Award if any of the following are present near x≈1 on the x-axis:
+     (i) a dot with a nearby “1” label,
+     (ii) the coordinate (1;0) or (1,0),
+     (iii) “x=1”.
+   • x-intercept tolerance: treat markings from x=0.8 to x=1.2 as at x=1.
+   • Do NOT infer the intercept from curve shape alone if there is no dot/label/crossing.
+
+C. SHAPE of a log curve with base >1
+   • Award if the main curve is increasing and concave down, with a steep left tail as x→0⁺ and a slowly rising right tail.
+   • The curve may be rough; if it shows some curvature at the ends and is overall increasing, award (borderline S17-type drawings qualify).
+   • Deduct if the drawing is obviously an exponential (concave up), a straight line with no curvature, or decreasing.
+
+AMBIGUITY POLICY
+• For A and B: if ambiguous, AWARD.
+• For C: award when there is some curvature and monotone increase; otherwise deduct.
+
+WHAT TO IGNORE
+• Page ruling, shading, smudges, erasures, arrowheads, labels such as “h⁻¹”, and stray pencil marks.
+• If multiple curves appear, choose the one nearest the first quadrant that approaches the y-axis from the right.
+
+STRICT vs RELAXED
+• STRICT mark (“Mark”) is the sum of A/B/C decisions above (0–3). ErrorTags must match these decisions exactly.
+• RELAXED potential marks (“PotentialMarks”) list all marks that could reasonably be awarded under generous interpretation:
+  – award A and/or B if borderline,
+  – award C if there is some curvature and monotone increase.
+• PotentialMarks must be a sorted list of unique integers from {0,1,2,3} and MUST include the strict mark.
+
+OUTPUT CONTRACT (MANDATORY — do not deviate)
+For EACH student, output exactly the following block. Use plain text, no markdown. Do not add blank lines between fields other than those shown. Do not echo examples. Do not write “3/3” anywhere except the single Mark line. Do not restate earlier students’ marks.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]
+Reasons:
+• Shape: <one concise sentence stating why awarded/deducted>
+• x-intercept: <one concise sentence>
+• Asymptote: <one concise sentence>
+PotentialMarks: [<comma-separated integers from {0,1,2,3}>]
+
+NOTES FOR REASONS
+• Keep each reason to one sentence, factual and tied to the rubric.
+• Use only numerals and standard coordinate forms (e.g., (1;0) or (1,0)) inside the Reasons.
+• Never include any additional “/3” strings anywhere in Reasons or PotentialMarks.
+
+IN-CONTEXT EXAMPLES (for understanding only — DO NOT OUTPUT THESE; they use “of” to avoid the “/3” token)
+Example A (perfect memo-like)
+Student EX-A
+Mark: `3 of 3`
+ErrorTags: [1,1,1]
+Reasons:
+• Shape: Increasing, concave-down log curve matching the memo.
+• x-intercept: Dot and label at x=1 on the x-axis.
+• Asymptote: Curve approaches but does not cross the y-axis.
+PotentialMarks: [3]
+
+Example B (borderline S17-like)
+Student EX-B
+Mark: `2 of 3`
+ErrorTags: [1,1,0]  (or [1,1,1] if it only touches)
+Reasons:
+• Shape: Mostly straight but bends at ends and is overall increasing, so award shape.
+• x-intercept: “1” marked on the x-axis near the crossing at x≈1.
+• Asymptote: [state “crosses” if any part lies left of the y-axis; otherwise “does not cross”].
+PotentialMarks: [1,2,3]
+
+Example C (exponential S6-like)
+Student EX-C
+Mark: `0 of 3`
+ErrorTags: [0,0,0]
+Reasons:
+• Shape: Exponential (concave up) rather than logarithmic.
+• x-intercept: No valid (1;0) indication on the x-axis.
+• Asymptote: Drawing not consistent with a log graph’s y-axis asymptote.
+PotentialMarks: [0,1]
+
+NOW GRADE
+Using the rules above and the attached memorandum image plus the 26 student images, produce one block per student numbered 1 to 26 using the exact Output Contract. Do not include any summary or extra text before, between, or after the student blocks.",APE,GPT-4.1,Group2,0.9,1.0,,,0.1538
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration1\Group2_All\gpt-4.1_APE_Group2_Temp_0.8_topP_0.95,GPT-4.1,Group2,ape-hitl,0.8,0.95,42424242,0.6538,0.4622,0.8059,0.7692,0.5795,0.8897,0.4645,0.8951,0.6195,0.9351,0.2485,0.683,0.8153,0.9468,0.3966,0.8443,0.8689,0.9766,0.2692,0.0769,0.4615,3,0.4514652014652014,0.6928712313327698,17,"TASK
+You are grading hand-drawn graphs of the inverse logarithmic function (base 2). Use the attached memorandum drawing as ground truth. Grade each student independently. Follow the rubric exactly. Output must follow the schema below with no extra prose or headers.
+
+RUBRIC (apply in this order; each awarded = 1 mark; total out of 3)
+A. ASYMPTOTE (y-axis at x=0)
+   • Award if the drawn curve does NOT clearly cross the y-axis.
+   • Touching or brushing the axis counts as NOT crossing.
+   • Axis ticks, labels, or arrowheads are NOT the curve.
+   • Deduct only when a visible part of the curve lies to the left of the y-axis.
+
+B. X-INTERCEPT at (1;0)
+   • Award if any of the following are present near x≈1 on the x-axis:
+     (i) a dot with a nearby “1” label,
+     (ii) the coordinate (1;0) or (1,0),
+     (iii) “x=1”.
+   • x-intercept tolerance: treat markings from x=0.8 to x=1.2 as at x=1.
+   • Do NOT infer the intercept from curve shape alone if there is no dot/label/crossing.
+
+C. SHAPE of a log curve with base >1
+   • Award if the main curve is increasing and concave down, with a steep left tail as x→0⁺ and a slowly rising right tail.
+   • The curve may be rough; if it shows some curvature at the ends and is overall increasing, award (borderline S17-type drawings qualify).
+   • Deduct if the drawing is obviously an exponential (concave up), a straight line with no curvature, or decreasing.
+
+AMBIGUITY POLICY
+• For A and B: if ambiguous, AWARD.
+• For C: award when there is some curvature and monotone increase; otherwise deduct.
+
+WHAT TO IGNORE
+• Page ruling, shading, smudges, erasures, arrowheads, labels such as “h⁻¹”, and stray pencil marks.
+• If multiple curves appear, choose the one nearest the first quadrant that approaches the y-axis from the right.
+
+STRICT vs RELAXED
+• STRICT mark (“Mark”) is the sum of A/B/C decisions above (0–3). ErrorTags must match these decisions exactly.
+• RELAXED potential marks (“PotentialMarks”) list all marks that could reasonably be awarded under generous interpretation:
+  – award A and/or B if borderline,
+  – award C if there is some curvature and monotone increase.
+• PotentialMarks must be a sorted list of unique integers from {0,1,2,3} and MUST include the strict mark.
+
+OUTPUT CONTRACT (MANDATORY — do not deviate)
+For EACH student, output exactly the following block. Use plain text, no markdown. Do not add blank lines between fields other than those shown. Do not echo examples. Do not write “3/3” anywhere except the single Mark line. Do not restate earlier students’ marks.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]
+Reasons:
+• Shape: <one concise sentence stating why awarded/deducted>
+• x-intercept: <one concise sentence>
+• Asymptote: <one concise sentence>
+PotentialMarks: [<comma-separated integers from {0,1,2,3}>]
+
+NOTES FOR REASONS
+• Keep each reason to one sentence, factual and tied to the rubric.
+• Use only numerals and standard coordinate forms (e.g., (1;0) or (1,0)) inside the Reasons.
+• Never include any additional “/3” strings anywhere in Reasons or PotentialMarks.
+
+IN-CONTEXT EXAMPLES (for understanding only — DO NOT OUTPUT THESE; they use “of” to avoid the “/3” token)
+Example A (perfect memo-like)
+Student EX-A
+Mark: `3 of 3`
+ErrorTags: [1,1,1]
+Reasons:
+• Shape: Increasing, concave-down log curve matching the memo.
+• x-intercept: Dot and label at x=1 on the x-axis.
+• Asymptote: Curve approaches but does not cross the y-axis.
+PotentialMarks: [3]
+
+Example B (borderline S17-like)
+Student EX-B
+Mark: `2 of 3`
+ErrorTags: [1,1,0]  (or [1,1,1] if it only touches)
+Reasons:
+• Shape: Mostly straight but bends at ends and is overall increasing, so award shape.
+• x-intercept: “1” marked on the x-axis near the crossing at x≈1.
+• Asymptote: [state “crosses” if any part lies left of the y-axis; otherwise “does not cross”].
+PotentialMarks: [1,2,3]
+
+Example C (exponential S6-like)
+Student EX-C
+Mark: `0 of 3`
+ErrorTags: [0,0,0]
+Reasons:
+• Shape: Exponential (concave up) rather than logarithmic.
+• x-intercept: No valid (1;0) indication on the x-axis.
+• Asymptote: Drawing not consistent with a log graph’s y-axis asymptote.
+PotentialMarks: [0,1]
+
+NOW GRADE
+Using the rules above and the attached memorandum image plus the 26 student images, produce one block per student numbered 1 to 26 using the exact Output Contract. Do not include any summary or extra text before, between, or after the student blocks.",APE,GPT-4.1,Group2,0.8,1.0,,,0.2692
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration1\Group2_All\gpt-4.1_APE_Group2_Temp_0.5_topP_0.95,GPT-4.1,Group2,ape-hitl,0.5,0.95,42424242,0.6538,0.4622,0.8059,0.7308,0.5392,0.863,0.4596,0.8591,0.5614,0.8878,0.2387,0.6814,0.7292,0.9397,0.3411,0.7863,0.7658,0.962,0.3077,0.0769,0.5385,2,0.4395604395604395,0.6855452240067625,17,"TASK
+You are grading hand-drawn graphs of the inverse logarithmic function (base 2). Use the attached memorandum drawing as ground truth. Grade each student independently. Follow the rubric exactly. Output must follow the schema below with no extra prose or headers.
+
+RUBRIC (apply in this order; each awarded = 1 mark; total out of 3)
+A. ASYMPTOTE (y-axis at x=0)
+   • Award if the drawn curve does NOT clearly cross the y-axis.
+   • Touching or brushing the axis counts as NOT crossing.
+   • Axis ticks, labels, or arrowheads are NOT the curve.
+   • Deduct only when a visible part of the curve lies to the left of the y-axis.
+
+B. X-INTERCEPT at (1;0)
+   • Award if any of the following are present near x≈1 on the x-axis:
+     (i) a dot with a nearby “1” label,
+     (ii) the coordinate (1;0) or (1,0),
+     (iii) “x=1”.
+   • x-intercept tolerance: treat markings from x=0.8 to x=1.2 as at x=1.
+   • Do NOT infer the intercept from curve shape alone if there is no dot/label/crossing.
+
+C. SHAPE of a log curve with base >1
+   • Award if the main curve is increasing and concave down, with a steep left tail as x→0⁺ and a slowly rising right tail.
+   • The curve may be rough; if it shows some curvature at the ends and is overall increasing, award (borderline S17-type drawings qualify).
+   • Deduct if the drawing is obviously an exponential (concave up), a straight line with no curvature, or decreasing.
+
+AMBIGUITY POLICY
+• For A and B: if ambiguous, AWARD.
+• For C: award when there is some curvature and monotone increase; otherwise deduct.
+
+WHAT TO IGNORE
+• Page ruling, shading, smudges, erasures, arrowheads, labels such as “h⁻¹”, and stray pencil marks.
+• If multiple curves appear, choose the one nearest the first quadrant that approaches the y-axis from the right.
+
+STRICT vs RELAXED
+• STRICT mark (“Mark”) is the sum of A/B/C decisions above (0–3). ErrorTags must match these decisions exactly.
+• RELAXED potential marks (“PotentialMarks”) list all marks that could reasonably be awarded under generous interpretation:
+  – award A and/or B if borderline,
+  – award C if there is some curvature and monotone increase.
+• PotentialMarks must be a sorted list of unique integers from {0,1,2,3} and MUST include the strict mark.
+
+OUTPUT CONTRACT (MANDATORY — do not deviate)
+For EACH student, output exactly the following block. Use plain text, no markdown. Do not add blank lines between fields other than those shown. Do not echo examples. Do not write “3/3” anywhere except the single Mark line. Do not restate earlier students’ marks.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]
+Reasons:
+• Shape: <one concise sentence stating why awarded/deducted>
+• x-intercept: <one concise sentence>
+• Asymptote: <one concise sentence>
+PotentialMarks: [<comma-separated integers from {0,1,2,3}>]
+
+NOTES FOR REASONS
+• Keep each reason to one sentence, factual and tied to the rubric.
+• Use only numerals and standard coordinate forms (e.g., (1;0) or (1,0)) inside the Reasons.
+• Never include any additional “/3” strings anywhere in Reasons or PotentialMarks.
+
+IN-CONTEXT EXAMPLES (for understanding only — DO NOT OUTPUT THESE; they use “of” to avoid the “/3” token)
+Example A (perfect memo-like)
+Student EX-A
+Mark: `3 of 3`
+ErrorTags: [1,1,1]
+Reasons:
+• Shape: Increasing, concave-down log curve matching the memo.
+• x-intercept: Dot and label at x=1 on the x-axis.
+• Asymptote: Curve approaches but does not cross the y-axis.
+PotentialMarks: [3]
+
+Example B (borderline S17-like)
+Student EX-B
+Mark: `2 of 3`
+ErrorTags: [1,1,0]  (or [1,1,1] if it only touches)
+Reasons:
+• Shape: Mostly straight but bends at ends and is overall increasing, so award shape.
+• x-intercept: “1” marked on the x-axis near the crossing at x≈1.
+• Asymptote: [state “crosses” if any part lies left of the y-axis; otherwise “does not cross”].
+PotentialMarks: [1,2,3]
+
+Example C (exponential S6-like)
+Student EX-C
+Mark: `0 of 3`
+ErrorTags: [0,0,0]
+Reasons:
+• Shape: Exponential (concave up) rather than logarithmic.
+• x-intercept: No valid (1;0) indication on the x-axis.
+• Asymptote: Drawing not consistent with a log graph’s y-axis asymptote.
+PotentialMarks: [0,1]
+
+NOW GRADE
+Using the rules above and the attached memorandum image plus the 26 student images, produce one block per student numbered 1 to 26 using the exact Output Contract. Do not include any summary or extra text before, between, or after the student blocks.",APE,GPT-4.1,Group2,0.5,1.0,,,0.3077
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration1\Group2_All\gpt-4.1_APE_Group2_Temp_0.7_topP_0.95,GPT-4.1,Group2,ape-hitl,0.7,0.95,42424242,0.6538,0.4622,0.8059,0.7308,0.5392,0.863,0.4596,0.8591,0.5614,0.8878,0.2387,0.6814,0.7292,0.9397,0.3411,0.7863,0.7658,0.962,0.3077,0.0769,0.5385,2,0.4395604395604395,0.6855452240067625,17,"TASK
+You are grading hand-drawn graphs of the inverse logarithmic function (base 2). Use the attached memorandum drawing as ground truth. Grade each student independently. Follow the rubric exactly. Output must follow the schema below with no extra prose or headers.
+
+RUBRIC (apply in this order; each awarded = 1 mark; total out of 3)
+A. ASYMPTOTE (y-axis at x=0)
+   • Award if the drawn curve does NOT clearly cross the y-axis.
+   • Touching or brushing the axis counts as NOT crossing.
+   • Axis ticks, labels, or arrowheads are NOT the curve.
+   • Deduct only when a visible part of the curve lies to the left of the y-axis.
+
+B. X-INTERCEPT at (1;0)
+   • Award if any of the following are present near x≈1 on the x-axis:
+     (i) a dot with a nearby “1” label,
+     (ii) the coordinate (1;0) or (1,0),
+     (iii) “x=1”.
+   • x-intercept tolerance: treat markings from x=0.8 to x=1.2 as at x=1.
+   • Do NOT infer the intercept from curve shape alone if there is no dot/label/crossing.
+
+C. SHAPE of a log curve with base >1
+   • Award if the main curve is increasing and concave down, with a steep left tail as x→0⁺ and a slowly rising right tail.
+   • The curve may be rough; if it shows some curvature at the ends and is overall increasing, award (borderline S17-type drawings qualify).
+   • Deduct if the drawing is obviously an exponential (concave up), a straight line with no curvature, or decreasing.
+
+AMBIGUITY POLICY
+• For A and B: if ambiguous, AWARD.
+• For C: award when there is some curvature and monotone increase; otherwise deduct.
+
+WHAT TO IGNORE
+• Page ruling, shading, smudges, erasures, arrowheads, labels such as “h⁻¹”, and stray pencil marks.
+• If multiple curves appear, choose the one nearest the first quadrant that approaches the y-axis from the right.
+
+STRICT vs RELAXED
+• STRICT mark (“Mark”) is the sum of A/B/C decisions above (0–3). ErrorTags must match these decisions exactly.
+• RELAXED potential marks (“PotentialMarks”) list all marks that could reasonably be awarded under generous interpretation:
+  – award A and/or B if borderline,
+  – award C if there is some curvature and monotone increase.
+• PotentialMarks must be a sorted list of unique integers from {0,1,2,3} and MUST include the strict mark.
+
+OUTPUT CONTRACT (MANDATORY — do not deviate)
+For EACH student, output exactly the following block. Use plain text, no markdown. Do not add blank lines between fields other than those shown. Do not echo examples. Do not write “3/3” anywhere except the single Mark line. Do not restate earlier students’ marks.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]
+Reasons:
+• Shape: <one concise sentence stating why awarded/deducted>
+• x-intercept: <one concise sentence>
+• Asymptote: <one concise sentence>
+PotentialMarks: [<comma-separated integers from {0,1,2,3}>]
+
+NOTES FOR REASONS
+• Keep each reason to one sentence, factual and tied to the rubric.
+• Use only numerals and standard coordinate forms (e.g., (1;0) or (1,0)) inside the Reasons.
+• Never include any additional “/3” strings anywhere in Reasons or PotentialMarks.
+
+IN-CONTEXT EXAMPLES (for understanding only — DO NOT OUTPUT THESE; they use “of” to avoid the “/3” token)
+Example A (perfect memo-like)
+Student EX-A
+Mark: `3 of 3`
+ErrorTags: [1,1,1]
+Reasons:
+• Shape: Increasing, concave-down log curve matching the memo.
+• x-intercept: Dot and label at x=1 on the x-axis.
+• Asymptote: Curve approaches but does not cross the y-axis.
+PotentialMarks: [3]
+
+Example B (borderline S17-like)
+Student EX-B
+Mark: `2 of 3`
+ErrorTags: [1,1,0]  (or [1,1,1] if it only touches)
+Reasons:
+• Shape: Mostly straight but bends at ends and is overall increasing, so award shape.
+• x-intercept: “1” marked on the x-axis near the crossing at x≈1.
+• Asymptote: [state “crosses” if any part lies left of the y-axis; otherwise “does not cross”].
+PotentialMarks: [1,2,3]
+
+Example C (exponential S6-like)
+Student EX-C
+Mark: `0 of 3`
+ErrorTags: [0,0,0]
+Reasons:
+• Shape: Exponential (concave up) rather than logarithmic.
+• x-intercept: No valid (1;0) indication on the x-axis.
+• Asymptote: Drawing not consistent with a log graph’s y-axis asymptote.
+PotentialMarks: [0,1]
+
+NOW GRADE
+Using the rules above and the attached memorandum image plus the 26 student images, produce one block per student numbered 1 to 26 using the exact Output Contract. Do not include any summary or extra text before, between, or after the student blocks.",APE,GPT-4.1,Group2,0.7,1.0,,,0.3077
+GPT_All\GPT4.1_APE_All\GPT_APE_Iteration1\Group2_All\gpt-4.1_APE_Group2_Temp_0.9_topP_0.9,GPT-4.1,Group2,ape-hitl,0.9,0.9,42424242,0.6538,0.4622,0.8059,0.7308,0.5392,0.863,0.4596,0.7916,0.5758,0.8462,0.2353,0.6875,0.6085,0.9161,0.3567,0.7985,0.6875,0.9502,0.2308,-0.0769,0.5385,2,0.427579365079365,0.6807081807081806,17,"TASK
+You are grading hand-drawn graphs of the inverse logarithmic function (base 2). Use the attached memorandum drawing as ground truth. Grade each student independently. Follow the rubric exactly. Output must follow the schema below with no extra prose or headers.
+
+RUBRIC (apply in this order; each awarded = 1 mark; total out of 3)
+A. ASYMPTOTE (y-axis at x=0)
+   • Award if the drawn curve does NOT clearly cross the y-axis.
+   • Touching or brushing the axis counts as NOT crossing.
+   • Axis ticks, labels, or arrowheads are NOT the curve.
+   • Deduct only when a visible part of the curve lies to the left of the y-axis.
+
+B. X-INTERCEPT at (1;0)
+   • Award if any of the following are present near x≈1 on the x-axis:
+     (i) a dot with a nearby “1” label,
+     (ii) the coordinate (1;0) or (1,0),
+     (iii) “x=1”.
+   • x-intercept tolerance: treat markings from x=0.8 to x=1.2 as at x=1.
+   • Do NOT infer the intercept from curve shape alone if there is no dot/label/crossing.
+
+C. SHAPE of a log curve with base >1
+   • Award if the main curve is increasing and concave down, with a steep left tail as x→0⁺ and a slowly rising right tail.
+   • The curve may be rough; if it shows some curvature at the ends and is overall increasing, award (borderline S17-type drawings qualify).
+   • Deduct if the drawing is obviously an exponential (concave up), a straight line with no curvature, or decreasing.
+
+AMBIGUITY POLICY
+• For A and B: if ambiguous, AWARD.
+• For C: award when there is some curvature and monotone increase; otherwise deduct.
+
+WHAT TO IGNORE
+• Page ruling, shading, smudges, erasures, arrowheads, labels such as “h⁻¹”, and stray pencil marks.
+• If multiple curves appear, choose the one nearest the first quadrant that approaches the y-axis from the right.
+
+STRICT vs RELAXED
+• STRICT mark (“Mark”) is the sum of A/B/C decisions above (0–3). ErrorTags must match these decisions exactly.
+• RELAXED potential marks (“PotentialMarks”) list all marks that could reasonably be awarded under generous interpretation:
+  – award A and/or B if borderline,
+  – award C if there is some curvature and monotone increase.
+• PotentialMarks must be a sorted list of unique integers from {0,1,2,3} and MUST include the strict mark.
+
+OUTPUT CONTRACT (MANDATORY — do not deviate)
+For EACH student, output exactly the following block. Use plain text, no markdown. Do not add blank lines between fields other than those shown. Do not echo examples. Do not write “3/3” anywhere except the single Mark line. Do not restate earlier students’ marks.
+
+Student <number>
+Mark: `<X>/3`     <-- appears exactly once for this student
+ErrorTags: [shape,x_intercept,asymptote] as [0/1,0/1,0/1]
+Reasons:
+• Shape: <one concise sentence stating why awarded/deducted>
+• x-intercept: <one concise sentence>
+• Asymptote: <one concise sentence>
+PotentialMarks: [<comma-separated integers from {0,1,2,3}>]
+
+NOTES FOR REASONS
+• Keep each reason to one sentence, factual and tied to the rubric.
+• Use only numerals and standard coordinate forms (e.g., (1;0) or (1,0)) inside the Reasons.
+• Never include any additional “/3” strings anywhere in Reasons or PotentialMarks.
+
+IN-CONTEXT EXAMPLES (for understanding only — DO NOT OUTPUT THESE; they use “of” to avoid the “/3” token)
+Example A (perfect memo-like)
+Student EX-A
+Mark: `3 of 3`
+ErrorTags: [1,1,1]
+Reasons:
+• Shape: Increasing, concave-down log curve matching the memo.
+• x-intercept: Dot and label at x=1 on the x-axis.
+• Asymptote: Curve approaches but does not cross the y-axis.
+PotentialMarks: [3]
+
+Example B (borderline S17-like)
+Student EX-B
+Mark: `2 of 3`
+ErrorTags: [1,1,0]  (or [1,1,1] if it only touches)
+Reasons:
+• Shape: Mostly straight but bends at ends and is overall increasing, so award shape.
+• x-intercept: “1” marked on the x-axis near the crossing at x≈1.
+• Asymptote: [state “crosses” if any part lies left of the y-axis; otherwise “does not cross”].
+PotentialMarks: [1,2,3]
+
+Example C (exponential S6-like)
+Student EX-C
+Mark: `0 of 3`
+ErrorTags: [0,0,0]
+Reasons:
+• Shape: Exponential (concave up) rather than logarithmic.
+• x-intercept: No valid (1;0) indication on the x-axis.
+• Asymptote: Drawing not consistent with a log graph’s y-axis asymptote.
+PotentialMarks: [0,1]
+
+NOW GRADE
+Using the rules above and the attached memorandum image plus the 26 student images, produce one block per student numbered 1 to 26 using the exact Output Contract. Do not include any summary or extra text before, between, or after the student blocks.",APE,GPT-4.1,Group2,0.9,1.0,,,0.2308
+GPT_All\GPT4.1_APE_All\GPT_GeminiPrompt_Iteration1\Group2_All\gpt-4.1_APE_Group2_Gemini_Prompt_Temp_0.5_topP_0.95,GPT-4.1,Group2,ape-hitl,0.5,0.95,42424242,0.0,0.0,0.7935,0.0,0.0,0.7935,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,1.0,1.0,1.0,0,0.0,0.0,0,"You are an expert mathematics teaching assistant. Your goal is to grade hand-drawn graphs accurately and consistently based on the provided memorandum and student work. Adhere to the following principles:
+Precision over Guesswork: Follow the provided rubric strictly. Do not infer student intent unless the rubric explicitly allows it.
+Benefit of the Doubt (BoD): These are hand-drawn sketches. For ambiguous cases (e.g., a shaky line, a curve that isn't perfectly smooth), err on the side of awarding the mark unless a clear conceptual error is visible.
+Consistency is Key: Apply the same level of scrutiny to every graph. Use the provided exemplars as your baseline for correctness and leniency.
+Foundational Requirements
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis) to be eligible for any marks. If no axes are present, the final mark is automatically 0/3. The reasoning should state that axes are required to demonstrate the graph's properties.
+Detailed Grading Rubric (3 Marks Total)
+You will assess each graph against the following three criteria. Award 1 mark for each criterion met.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The function is strictly increasing.
+The graph displays clear and continuous concave down curvature. A slight but noticeable curve throughout is sufficient.
+The overall trend is correct, even if drawn with slightly linear segments connecting key points (e.g., connecting (1/2, -1), (1,0), (2,1)).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear, showing only a minor bend at one end instead of a continuous curve.
+The graph is concave up (bending upwards, like a U-shape) or an incorrect function type.
+The graph has a clear starting point on the x-axis (e.g., at (1,0)) and does not extend downwards towards the vertical asymptote. A complete shape must show behavior on both sides of the x-axis.
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A clear dot is placed at the intersection on the x-axis, and the number 1 is written on the x-axis at that exact point.
+The graph clearly and unambiguously passes through the point on the x-axis labeled '1'.
+Negative Indicators (Deduct mark if ALL of the following are true):
+The intercept is clearly at a different x-value or on the y-axis.
+The intercept is not marked at all (no dot, no number, no coordinate).
+The label is incorrect (e.g., (0,1)).
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph approaches the y-axis (x=0) but does not touch or cross it for its entire length.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision. Also, award the mark if the line barely crosses the y-axis for the specific purpose of connecting to a correctly plotted point near the axis (like (1/2, -1)).
+Grading Procedure and Output Format
+For each student graph you are given, follow this exact procedure. Do not add any conversational text outside of this structure.
+Check Foundational Requirements. If they fail, assign 0/3 and stop.
+Analyze Shape, X-Intercept, and Asymptote using the rubric.
+Calculate the final mark and generate the output in the strict format below.
+Exemplar Analyses
+Here are examples of how to apply the refined rubric.
+Student S5:
+Shape: 0/1. Reason: The graph is predominantly linear. It lacks the clear and continuous concave down curvature required for a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Student S13:
+Shape: 0/1. Reason: The shape is incomplete. The graph has a clear starting point at (1,0) and does not show the required behavior of extending downwards towards the vertical asymptote as x approaches 0.
+X-Intercept: 0/1. Reason: The graph does not pass through an x-intercept; it incorrectly starts at this point.
+Asymptote: 0/1. Reason: The graph does not demonstrate the asymptotic behavior, as it does not approach the y-axis.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Student S24:
+Shape: 0/1. Reason: Foundational requirement not met. No axes are drawn, so the properties of the graph cannot be verified.
+X-Intercept: 0/1. Reason: No axes are drawn, so the x-intercept cannot be shown.
+Asymptote: 0/1. Reason: No axes are drawn, so the asymptote cannot be shown.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Review and System Instruction
+After analyzing all students, review your entire response. Before concluding, ensure that for EACH student:
+The Final Mark: X/3 line appears exactly once.
+The Error Tags: [a,b,c] line appears exactly once, where a, b, and c are either 0 or 1.
+The reasoning provided for each mark directly corresponds to the rubric.
+You will now be provided with the student graphs. Begin grading.",APE,GPT-4.1,Group2,0.5,1.0,,,1.0

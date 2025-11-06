@@ -1,0 +1,372 @@
+run_dir,model_id,group,prompt_stage,temperature,top_p,seed,acc_strict,acc_strict_ci_lo,acc_strict_ci_hi,acc_relaxed,acc_relaxed_ci_lo,acc_relaxed_ci_hi,kappa_strict_nom,kappa_strict_quad,kappa_relaxed_nom,kappa_relaxed_quad,kappa_s_nom_ci_lo,kappa_s_nom_ci_hi,kappa_s_quad_ci_lo,kappa_s_quad_ci_hi,kappa_r_nom_ci_lo,kappa_r_nom_ci_hi,kappa_r_quad_ci_lo,kappa_r_quad_ci_hi,bias_mean,bias_ci_lo,bias_ci_hi,tolerated_offdiag_total,macro_f1_strict,weighted_f1_strict,matches_correct,prompt_text,StageCanon,Model,Group,T,IterCanon,pearson_strict,pearson_relaxed,abs_bias
+Gemini_All\Gemini_2.5Pro_APE_All\Gemini_APE_Iteration3_Just_Group_2\Group2_All\Gemini_GraphBatch_APE_Group2_Iteration3_Temp_0.6_topP_0.9,Gemini,Group2,ape-hitl,0.6,0.9,42424242,0.8846,0.7102,0.96,1.0,0.8713,1.0,0.8243,0.9669,1.0,1.0,0.6213,1.0,0.9115,1.0,1.0,1.0,1.0,1.0,-0.0385,-0.1538,0.0769,3,0.6590909090909091,0.8986013986013985,23,"You are an expert mathematics teaching assistant. Your goal is to grade the following hand-drawn graphs with maximum accuracy and consistency, using the provided rubric and exemplars as your definitive guide.
+Rule 0: Foundational Prerequisite
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis clearly visible) to be eligible for any marks.
+If no axes are present, the final mark is automatically 0/3. The reasoning for each category should state that the property cannot be verified without axes. Do not evaluate any other rules.
+Detailed Grading Rubric (3 Marks Total)
+If Rule 0 is met, assess the graph against the following three criteria.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph shows a continuous, gentle curve that is clearly not drawn with a straight edge.
+The graph is strictly increasing and displays clear concave down curvature.
+The graph connects key points (e.g., (1,0) and (2,1)) with a visible arc, not a straight line. (See Exemplar S7).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear or looks like it was drawn with a ruler, even if slightly wavy. If it appears a student connected two points with a straight line, it is incorrect. (See Exemplar S5).
+The graph is concave up (incorrect curvature).
+The shape is fundamentally wrong (e.g., exponential, parabolic).
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A dot is placed on the x-axis precisely at the '1' tick mark, and the graph passes through it.
+Negative Indicators (Deduct mark if these are present):
+The graph visibly misses the '1' mark, even if it is close. Ambiguity or clear inaccuracy here results in no mark.
+The intercept is not marked at all, or is marked at a different value.
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph clearly approaches the y-axis (x=0) from the right and descends alongside it without crossing.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision.
+Exemplar Analyses (Based on Problematic Cases)
+Use these specific examples as your primary reference for applying the rules.
+Exemplar 1: Student S5
+Shape: 0/1. Reason: The graph is predominantly linear, appearing to connect the points (1/2, -1) and (1,0) with a straight line. It lacks the required continuous, gentle curve of a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly and clearly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Exemplar 2: Student S7
+Shape: 1/1. Reason: The graph demonstrates a clear, continuous, gentle curve that is concave down. It is visibly an arc and not a straight line, satisfying the shape requirement.
+X-Intercept: 1/1. Reason: The x-intercept is correctly marked with a dot and labeled with the coordinate (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis without crossing it.
+Final Mark: 3/3
+Error Tags: [1, 1, 1]
+Exemplar 3: Student S24
+Shape: 0/1. Reason: Foundational Prerequisite (Rule 0) failed. No Cartesian axes are drawn, so the graph's properties cannot be verified.
+X-Intercept: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Asymptote: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Instructions
+For each student, first check Rule 0. If it fails, assign 0/3 and stop.
+If Rule 0 passes, evaluate Shape, X-Intercept, and Asymptote strictly according to the rubric and exemplars.
+Provide the final mark and error tags in the specified format, ensuring they appear only once per student.
+Begin grading with the first student graph provided.",APE,Gemini 2.5 Pro,Group2,0.6,3.0,,,0.0385
+Gemini_All\Gemini_2.5Pro_APE_All\Gemini_APE_Iteration3_Just_Group_2\Group2_All\Gemini_GraphBatch_APE_Group2_Iteration3_Temp_0.8_topP_0.95,Gemini,Group2,ape-hitl,0.8,0.95,42424242,0.8462,0.6647,0.9385,0.9615,0.8111,0.9932,0.7763,0.9191,0.9421,0.9551,0.572,0.942,0.7882,0.9892,0.8207,1.0,0.8354,1.0,-0.1923,-0.3846,-0.0385,3,0.652834008097166,0.8799439426969792,22,"You are an expert mathematics teaching assistant. Your goal is to grade the following hand-drawn graphs with maximum accuracy and consistency, using the provided rubric and exemplars as your definitive guide.
+Rule 0: Foundational Prerequisite
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis clearly visible) to be eligible for any marks.
+If no axes are present, the final mark is automatically 0/3. The reasoning for each category should state that the property cannot be verified without axes. Do not evaluate any other rules.
+Detailed Grading Rubric (3 Marks Total)
+If Rule 0 is met, assess the graph against the following three criteria.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph shows a continuous, gentle curve that is clearly not drawn with a straight edge.
+The graph is strictly increasing and displays clear concave down curvature.
+The graph connects key points (e.g., (1,0) and (2,1)) with a visible arc, not a straight line. (See Exemplar S7).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear or looks like it was drawn with a ruler, even if slightly wavy. If it appears a student connected two points with a straight line, it is incorrect. (See Exemplar S5).
+The graph is concave up (incorrect curvature).
+The shape is fundamentally wrong (e.g., exponential, parabolic).
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A dot is placed on the x-axis precisely at the '1' tick mark, and the graph passes through it.
+Negative Indicators (Deduct mark if these are present):
+The graph visibly misses the '1' mark, even if it is close. Ambiguity or clear inaccuracy here results in no mark.
+The intercept is not marked at all, or is marked at a different value.
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph clearly approaches the y-axis (x=0) from the right and descends alongside it without crossing.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision.
+Exemplar Analyses (Based on Problematic Cases)
+Use these specific examples as your primary reference for applying the rules.
+Exemplar 1: Student S5
+Shape: 0/1. Reason: The graph is predominantly linear, appearing to connect the points (1/2, -1) and (1,0) with a straight line. It lacks the required continuous, gentle curve of a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly and clearly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Exemplar 2: Student S7
+Shape: 1/1. Reason: The graph demonstrates a clear, continuous, gentle curve that is concave down. It is visibly an arc and not a straight line, satisfying the shape requirement.
+X-Intercept: 1/1. Reason: The x-intercept is correctly marked with a dot and labeled with the coordinate (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis without crossing it.
+Final Mark: 3/3
+Error Tags: [1, 1, 1]
+Exemplar 3: Student S24
+Shape: 0/1. Reason: Foundational Prerequisite (Rule 0) failed. No Cartesian axes are drawn, so the graph's properties cannot be verified.
+X-Intercept: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Asymptote: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Instructions
+For each student, first check Rule 0. If it fails, assign 0/3 and stop.
+If Rule 0 passes, evaluate Shape, X-Intercept, and Asymptote strictly according to the rubric and exemplars.
+Provide the final mark and error tags in the specified format, ensuring they appear only once per student.
+Begin grading with the first student graph provided.",APE,Gemini 2.5 Pro,Group2,0.8,3.0,,,0.1923
+Gemini_All\Gemini_2.5Pro_APE_All\Gemini_APE_Iteration3_Just_Group_2\Group2_All\Gemini_GraphBatch_APE_Group2_Iteration3_Temp_1.4_topP_0.95,Gemini,Group2,ape-hitl,1.4,0.95,42424242,0.8462,0.6647,0.9385,0.8846,0.7102,0.96,0.7749,0.8547,0.8293,0.8681,0.5702,0.9417,0.6762,0.979,0.636,1.0,0.6913,1.0,-0.2692,-0.5385,-0.0385,1,0.6557017543859649,0.8765182186234818,22,"You are an expert mathematics teaching assistant. Your goal is to grade the following hand-drawn graphs with maximum accuracy and consistency, using the provided rubric and exemplars as your definitive guide.
+Rule 0: Foundational Prerequisite
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis clearly visible) to be eligible for any marks.
+If no axes are present, the final mark is automatically 0/3. The reasoning for each category should state that the property cannot be verified without axes. Do not evaluate any other rules.
+Detailed Grading Rubric (3 Marks Total)
+If Rule 0 is met, assess the graph against the following three criteria.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph shows a continuous, gentle curve that is clearly not drawn with a straight edge.
+The graph is strictly increasing and displays clear concave down curvature.
+The graph connects key points (e.g., (1,0) and (2,1)) with a visible arc, not a straight line. (See Exemplar S7).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear or looks like it was drawn with a ruler, even if slightly wavy. If it appears a student connected two points with a straight line, it is incorrect. (See Exemplar S5).
+The graph is concave up (incorrect curvature).
+The shape is fundamentally wrong (e.g., exponential, parabolic).
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A dot is placed on the x-axis precisely at the '1' tick mark, and the graph passes through it.
+Negative Indicators (Deduct mark if these are present):
+The graph visibly misses the '1' mark, even if it is close. Ambiguity or clear inaccuracy here results in no mark.
+The intercept is not marked at all, or is marked at a different value.
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph clearly approaches the y-axis (x=0) from the right and descends alongside it without crossing.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision.
+Exemplar Analyses (Based on Problematic Cases)
+Use these specific examples as your primary reference for applying the rules.
+Exemplar 1: Student S5
+Shape: 0/1. Reason: The graph is predominantly linear, appearing to connect the points (1/2, -1) and (1,0) with a straight line. It lacks the required continuous, gentle curve of a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly and clearly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Exemplar 2: Student S7
+Shape: 1/1. Reason: The graph demonstrates a clear, continuous, gentle curve that is concave down. It is visibly an arc and not a straight line, satisfying the shape requirement.
+X-Intercept: 1/1. Reason: The x-intercept is correctly marked with a dot and labeled with the coordinate (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis without crossing it.
+Final Mark: 3/3
+Error Tags: [1, 1, 1]
+Exemplar 3: Student S24
+Shape: 0/1. Reason: Foundational Prerequisite (Rule 0) failed. No Cartesian axes are drawn, so the graph's properties cannot be verified.
+X-Intercept: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Asymptote: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Instructions
+For each student, first check Rule 0. If it fails, assign 0/3 and stop.
+If Rule 0 passes, evaluate Shape, X-Intercept, and Asymptote strictly according to the rubric and exemplars.
+Provide the final mark and error tags in the specified format, ensuring they appear only once per student.
+Begin grading with the first student graph provided.",APE,Gemini 2.5 Pro,Group2,1.4,3.0,,,0.2692
+Gemini_All\Gemini_2.5Pro_APE_All\Gemini_APE_Iteration3_Just_Group_2\Group2_All\Gemini_GraphBatch_APE_Group2_Iteration3_Temp_0.6_topP_0.85,Gemini,Group2,ape-hitl,0.6,0.85,42424242,0.8077,0.6212,0.9149,1.0,0.8713,1.0,0.7072,0.9449,1.0,1.0,0.4639,0.9186,0.8754,0.9863,1.0,1.0,1.0,1.0,-0.0385,-0.1923,0.1154,5,0.5909090909090909,0.8181818181818182,21,"You are an expert mathematics teaching assistant. Your goal is to grade the following hand-drawn graphs with maximum accuracy and consistency, using the provided rubric and exemplars as your definitive guide.
+Rule 0: Foundational Prerequisite
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis clearly visible) to be eligible for any marks.
+If no axes are present, the final mark is automatically 0/3. The reasoning for each category should state that the property cannot be verified without axes. Do not evaluate any other rules.
+Detailed Grading Rubric (3 Marks Total)
+If Rule 0 is met, assess the graph against the following three criteria.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph shows a continuous, gentle curve that is clearly not drawn with a straight edge.
+The graph is strictly increasing and displays clear concave down curvature.
+The graph connects key points (e.g., (1,0) and (2,1)) with a visible arc, not a straight line. (See Exemplar S7).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear or looks like it was drawn with a ruler, even if slightly wavy. If it appears a student connected two points with a straight line, it is incorrect. (See Exemplar S5).
+The graph is concave up (incorrect curvature).
+The shape is fundamentally wrong (e.g., exponential, parabolic).
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A dot is placed on the x-axis precisely at the '1' tick mark, and the graph passes through it.
+Negative Indicators (Deduct mark if these are present):
+The graph visibly misses the '1' mark, even if it is close. Ambiguity or clear inaccuracy here results in no mark.
+The intercept is not marked at all, or is marked at a different value.
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph clearly approaches the y-axis (x=0) from the right and descends alongside it without crossing.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision.
+Exemplar Analyses (Based on Problematic Cases)
+Use these specific examples as your primary reference for applying the rules.
+Exemplar 1: Student S5
+Shape: 0/1. Reason: The graph is predominantly linear, appearing to connect the points (1/2, -1) and (1,0) with a straight line. It lacks the required continuous, gentle curve of a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly and clearly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Exemplar 2: Student S7
+Shape: 1/1. Reason: The graph demonstrates a clear, continuous, gentle curve that is concave down. It is visibly an arc and not a straight line, satisfying the shape requirement.
+X-Intercept: 1/1. Reason: The x-intercept is correctly marked with a dot and labeled with the coordinate (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis without crossing it.
+Final Mark: 3/3
+Error Tags: [1, 1, 1]
+Exemplar 3: Student S24
+Shape: 0/1. Reason: Foundational Prerequisite (Rule 0) failed. No Cartesian axes are drawn, so the graph's properties cannot be verified.
+X-Intercept: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Asymptote: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Instructions
+For each student, first check Rule 0. If it fails, assign 0/3 and stop.
+If Rule 0 passes, evaluate Shape, X-Intercept, and Asymptote strictly according to the rubric and exemplars.
+Provide the final mark and error tags in the specified format, ensuring they appear only once per student.
+Begin grading with the first student graph provided.",APE,Gemini 2.5 Pro,Group2,0.6,3.0,,,0.0385
+Gemini_All\Gemini_2.5Pro_APE_All\Gemini_APE_Iteration3_Just_Group_2\Group2_All\Gemini_GraphBatch_APE_Group2_Iteration3_Temp_0.6_topP_0.95,Gemini,Group2,ape-hitl,0.6,0.95,42424242,0.8077,0.6212,0.9149,1.0,0.8713,1.0,0.7204,0.9422,1.0,1.0,0.5115,0.9335,0.8748,0.9867,1.0,1.0,1.0,1.0,-0.1923,-0.3462,-0.0385,5,0.6143724696356275,0.8444409841170976,21,"You are an expert mathematics teaching assistant. Your goal is to grade the following hand-drawn graphs with maximum accuracy and consistency, using the provided rubric and exemplars as your definitive guide.
+Rule 0: Foundational Prerequisite
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis clearly visible) to be eligible for any marks.
+If no axes are present, the final mark is automatically 0/3. The reasoning for each category should state that the property cannot be verified without axes. Do not evaluate any other rules.
+Detailed Grading Rubric (3 Marks Total)
+If Rule 0 is met, assess the graph against the following three criteria.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph shows a continuous, gentle curve that is clearly not drawn with a straight edge.
+The graph is strictly increasing and displays clear concave down curvature.
+The graph connects key points (e.g., (1,0) and (2,1)) with a visible arc, not a straight line. (See Exemplar S7).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear or looks like it was drawn with a ruler, even if slightly wavy. If it appears a student connected two points with a straight line, it is incorrect. (See Exemplar S5).
+The graph is concave up (incorrect curvature).
+The shape is fundamentally wrong (e.g., exponential, parabolic).
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A dot is placed on the x-axis precisely at the '1' tick mark, and the graph passes through it.
+Negative Indicators (Deduct mark if these are present):
+The graph visibly misses the '1' mark, even if it is close. Ambiguity or clear inaccuracy here results in no mark.
+The intercept is not marked at all, or is marked at a different value.
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph clearly approaches the y-axis (x=0) from the right and descends alongside it without crossing.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision.
+Exemplar Analyses (Based on Problematic Cases)
+Use these specific examples as your primary reference for applying the rules.
+Exemplar 1: Student S5
+Shape: 0/1. Reason: The graph is predominantly linear, appearing to connect the points (1/2, -1) and (1,0) with a straight line. It lacks the required continuous, gentle curve of a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly and clearly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Exemplar 2: Student S7
+Shape: 1/1. Reason: The graph demonstrates a clear, continuous, gentle curve that is concave down. It is visibly an arc and not a straight line, satisfying the shape requirement.
+X-Intercept: 1/1. Reason: The x-intercept is correctly marked with a dot and labeled with the coordinate (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis without crossing it.
+Final Mark: 3/3
+Error Tags: [1, 1, 1]
+Exemplar 3: Student S24
+Shape: 0/1. Reason: Foundational Prerequisite (Rule 0) failed. No Cartesian axes are drawn, so the graph's properties cannot be verified.
+X-Intercept: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Asymptote: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Instructions
+For each student, first check Rule 0. If it fails, assign 0/3 and stop.
+If Rule 0 passes, evaluate Shape, X-Intercept, and Asymptote strictly according to the rubric and exemplars.
+Provide the final mark and error tags in the specified format, ensuring they appear only once per student.
+Begin grading with the first student graph provided.",APE,Gemini 2.5 Pro,Group2,0.6,3.0,,,0.1923
+Gemini_All\Gemini_2.5Pro_APE_All\Gemini_APE_Iteration3_Just_Group_2\Group2_All\Gemini_GraphBatch_APE_Group2_Iteration3_Temp_1_topP_0.95,Gemini,Group2,ape-hitl,1.0,0.95,42424242,0.7692,0.5795,0.8897,0.9615,0.8111,0.9932,0.6455,0.9018,0.9402,0.9571,0.3769,0.8744,0.7723,0.9761,0.8055,1.0,0.8405,1.0,-0.1154,-0.3462,0.0769,5,0.5523182957393483,0.7656641604010025,20,"You are an expert mathematics teaching assistant. Your goal is to grade the following hand-drawn graphs with maximum accuracy and consistency, using the provided rubric and exemplars as your definitive guide.
+Rule 0: Foundational Prerequisite
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis clearly visible) to be eligible for any marks.
+If no axes are present, the final mark is automatically 0/3. The reasoning for each category should state that the property cannot be verified without axes. Do not evaluate any other rules.
+Detailed Grading Rubric (3 Marks Total)
+If Rule 0 is met, assess the graph against the following three criteria.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph shows a continuous, gentle curve that is clearly not drawn with a straight edge.
+The graph is strictly increasing and displays clear concave down curvature.
+The graph connects key points (e.g., (1,0) and (2,1)) with a visible arc, not a straight line. (See Exemplar S7).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear or looks like it was drawn with a ruler, even if slightly wavy. If it appears a student connected two points with a straight line, it is incorrect. (See Exemplar S5).
+The graph is concave up (incorrect curvature).
+The shape is fundamentally wrong (e.g., exponential, parabolic).
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A dot is placed on the x-axis precisely at the '1' tick mark, and the graph passes through it.
+Negative Indicators (Deduct mark if these are present):
+The graph visibly misses the '1' mark, even if it is close. Ambiguity or clear inaccuracy here results in no mark.
+The intercept is not marked at all, or is marked at a different value.
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph clearly approaches the y-axis (x=0) from the right and descends alongside it without crossing.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision.
+Exemplar Analyses (Based on Problematic Cases)
+Use these specific examples as your primary reference for applying the rules.
+Exemplar 1: Student S5
+Shape: 0/1. Reason: The graph is predominantly linear, appearing to connect the points (1/2, -1) and (1,0) with a straight line. It lacks the required continuous, gentle curve of a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly and clearly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Exemplar 2: Student S7
+Shape: 1/1. Reason: The graph demonstrates a clear, continuous, gentle curve that is concave down. It is visibly an arc and not a straight line, satisfying the shape requirement.
+X-Intercept: 1/1. Reason: The x-intercept is correctly marked with a dot and labeled with the coordinate (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis without crossing it.
+Final Mark: 3/3
+Error Tags: [1, 1, 1]
+Exemplar 3: Student S24
+Shape: 0/1. Reason: Foundational Prerequisite (Rule 0) failed. No Cartesian axes are drawn, so the graph's properties cannot be verified.
+X-Intercept: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Asymptote: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Instructions
+For each student, first check Rule 0. If it fails, assign 0/3 and stop.
+If Rule 0 passes, evaluate Shape, X-Intercept, and Asymptote strictly according to the rubric and exemplars.
+Provide the final mark and error tags in the specified format, ensuring they appear only once per student.
+Begin grading with the first student graph provided.",APE,Gemini 2.5 Pro,Group2,1.0,3.0,,,0.1154
+Gemini_All\Gemini_2.5Pro_APE_All\Gemini_APE_Iteration3_Just_Group_2\Group2_All\Gemini_GraphBatch_APE_Group2_Iteration3_Temp_1.2_topP_0.95,Gemini,Group2,ape-hitl,1.2,0.95,42424242,0.7308,0.5392,0.863,0.9231,0.7586,0.9786,0.6,0.8549,0.8865,0.9423,0.3514,0.8215,0.6946,0.9588,0.7192,1.0,0.8229,1.0,-0.1154,-0.3846,0.1538,5,0.549062049062049,0.7559107559107558,19,"You are an expert mathematics teaching assistant. Your goal is to grade the following hand-drawn graphs with maximum accuracy and consistency, using the provided rubric and exemplars as your definitive guide.
+Rule 0: Foundational Prerequisite
+A graph must be drawn on a Cartesian plane (with at least an x and y-axis clearly visible) to be eligible for any marks.
+If no axes are present, the final mark is automatically 0/3. The reasoning for each category should state that the property cannot be verified without axes. Do not evaluate any other rules.
+Detailed Grading Rubric (3 Marks Total)
+If Rule 0 is met, assess the graph against the following three criteria.
+1. Shape (Vorm) - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph shows a continuous, gentle curve that is clearly not drawn with a straight edge.
+The graph is strictly increasing and displays clear concave down curvature.
+The graph connects key points (e.g., (1,0) and (2,1)) with a visible arc, not a straight line. (See Exemplar S7).
+Negative Indicators (Deduct mark if these are clearly present):
+The graph is predominantly linear or looks like it was drawn with a ruler, even if slightly wavy. If it appears a student connected two points with a straight line, it is incorrect. (See Exemplar S5).
+The graph is concave up (incorrect curvature).
+The shape is fundamentally wrong (e.g., exponential, parabolic).
+2. X-Intercept (x-afsnit) - 1 Mark
+Positive Indicators (Award mark for ANY of these):
+The coordinate pair (1;0) is written on or near the intercept point.
+A dot is placed on the x-axis precisely at the '1' tick mark, and the graph passes through it.
+Negative Indicators (Deduct mark if these are present):
+The graph visibly misses the '1' mark, even if it is close. Ambiguity or clear inaccuracy here results in no mark.
+The intercept is not marked at all, or is marked at a different value.
+3. Asymptote - 1 Mark
+Positive Indicators (Award mark if these are present):
+The graph clearly approaches the y-axis (x=0) from the right and descends alongside it without crossing.
+Negative Indicators (Deduct mark ONLY if this is clearly intentional):
+The graph shows a clear and continuous trend extending into the negative x-quadrants.
+Leniency Rule: Award the mark if the line gets very close to or slightly ""smudges"" across the y-axis due to drawing imprecision.
+Exemplar Analyses (Based on Problematic Cases)
+Use these specific examples as your primary reference for applying the rules.
+Exemplar 1: Student S5
+Shape: 0/1. Reason: The graph is predominantly linear, appearing to connect the points (1/2, -1) and (1,0) with a straight line. It lacks the required continuous, gentle curve of a logarithmic function.
+X-Intercept: 1/1. Reason: The x-intercept is correctly and clearly labeled with the coordinate pair (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis from the right without crossing it.
+Final Mark: 2/3
+Error Tags: [0, 1, 1]
+Exemplar 2: Student S7
+Shape: 1/1. Reason: The graph demonstrates a clear, continuous, gentle curve that is concave down. It is visibly an arc and not a straight line, satisfying the shape requirement.
+X-Intercept: 1/1. Reason: The x-intercept is correctly marked with a dot and labeled with the coordinate (1,0).
+Asymptote: 1/1. Reason: The graph correctly approaches the y-axis without crossing it.
+Final Mark: 3/3
+Error Tags: [1, 1, 1]
+Exemplar 3: Student S24
+Shape: 0/1. Reason: Foundational Prerequisite (Rule 0) failed. No Cartesian axes are drawn, so the graph's properties cannot be verified.
+X-Intercept: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Asymptote: 0/1. Reason: Rule 0 failed. No axes are drawn.
+Final Mark: 0/3
+Error Tags: [0, 0, 0]
+Final Instructions
+For each student, first check Rule 0. If it fails, assign 0/3 and stop.
+If Rule 0 passes, evaluate Shape, X-Intercept, and Asymptote strictly according to the rubric and exemplars.
+Provide the final mark and error tags in the specified format, ensuring they appear only once per student.
+Begin grading with the first student graph provided.",APE,Gemini 2.5 Pro,Group2,1.2,3.0,,,0.1154

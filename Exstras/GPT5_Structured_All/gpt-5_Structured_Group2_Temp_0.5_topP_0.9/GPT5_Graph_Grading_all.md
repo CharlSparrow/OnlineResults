@@ -1,0 +1,28 @@
+Here are the marks for S1–S26. For each, I state why the three possible marks (shape, x‑intercept, asymptote) were earned or lost.
+
+- S1: 2/3 – Shape not like a log graph; x‑intercept at 1 shown; y‑axis asymptote respected.  
+- S2: 3/3 – Correct log shape; (1;0) shown; does not cross y‑axis.  
+- S3: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S4: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S5: 1/3 – Drew a straight line that crosses the y‑axis (wrong shape, violates asymptote); (1;0) indicated.  
+- S6: 0/3 – Exponential, not log; crosses y‑axis; no (1;0).  
+- S7: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S8: 2/3 – Acceptable general shape and does not cross y‑axis; (1;0) not indicated.  
+- S9: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S10: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S11: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S12: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S13: 1/3 – Rough straight line only; no (1;0); stays to the right of the y‑axis (asymptote mark only).  
+- S14: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S15: 1/3 – Exponential‑like; no (1;0); does not cross y‑axis (asymptote mark only).  
+- S16: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S17: 2/3 – Shape off (nearly linear); x‑intercept at 1 shown; does not cross y‑axis.  
+- S18: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S19: 2/3 – Log curve drawn and respects asymptote; (1;0) not clearly indicated.  
+- S20: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S21: 3/3 – Correct shape; (1;0) shown; asymptote respected.  
+- S22: 0/3 – Wrong shape, crosses y‑axis, no (1;0).  
+- S23: 0/3 – No usable axes/features; cannot award marks.  
+- S24: 1/3 – Rough log‑like shape only; no (1;0) and no y‑axis to verify asymptote.  
+- S25: 0/3 – No graph provided.  
+- S26: 0/3 – Blank.
