@@ -4,12 +4,12 @@ This repo publishes the final, reproducible results for the study on *Automatic 
 
 ## What’s here
 
-- `figs/` — summary visuals used in the paper (heatmaps, grids, winner matrix, etc.).
-- `Gemini_All/` — all Gemini 2.5 Pro runs, grouped by stage.  
+- `figs/` : summary visuals used in the paper (heatmaps, grids, winner matrix, etc.).
+- `Gemini_All/` : all Gemini 2.5 Pro runs, grouped by stage.  
   Each subfolder name encodes the config (group, iteration, T, top-p).
-- `GPT_All/` — all GPT-4.1 runs, grouped by stage with the same naming.
-- `P1_Group1_COS700/`, `P1_Group2_COS700/` — the two redraw sets used for evaluation (IDs S1–S26).
-- `Exstras/` — extra showcase runs, including preview runs, GPT-5 runs, and “Gemini-2.5-flash” zero-shot dumps.
+- `GPT_All/` : all GPT-4.1 runs, grouped by stage with the same naming.
+- `P1_Group1_COS700/`, `P1_Group2_COS700/` : the two redraw sets used for evaluation (IDs S1–S26).
+- `Exstras/` : extra showcase runs, including preview runs, GPT-5 runs, and “Gemini-2.5-flash” zero-shot dumps.
 
 
 ## How to verify a result quickly
@@ -27,10 +27,10 @@ This repo publishes the final, reproducible results for the study on *Automatic 
 
 ## Metrics (short)
 
-- `Acc_strict` — exact agreement with ground truth mark.
-- `Acc_relaxed` — agreement within the specified acceptance set for each item.
-- `kappa` variants — Cohen’s kappa (nominal and quadratic-weighted) for strict and relaxed.
-- `Bias` — mean(model − expected) over items.
+- `Acc_strict` : exact agreement with ground truth mark.
+- `Acc_relaxed` : agreement within the specified acceptance set for each item.
+- `kappa` variants : Cohen’s kappa (nominal and quadratic-weighted) for strict and relaxed.
+- `Bias` : mean(model − expected) over items.
 
 ## Notes
 
