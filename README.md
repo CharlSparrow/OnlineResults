@@ -1,4 +1,4 @@
-# OnlineResults: Hand-drawn Graph Grading (CAPS)
+# OnlineResults: Automatic Assessment of Cartesian Graphs in the South African Context
 
 This repo publishes the final, reproducible results for the study on *Automatic Assessment of Cartesian Graphs in the South African Context*. It evaluates **Gemini 2.5 Pro** and **GPT-4.1** across prompt styles: Zero-shot, Few-shot, Structured, Structured-Minus-Exemplar, and APE (human-in-the-loop prompt refinement) with HITL (Human In The Loop) refinements out of band.
 
